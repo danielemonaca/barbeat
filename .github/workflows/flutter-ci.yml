@@ -3,8 +3,7 @@ name: Flutter CI
 on:
   pull_request:
     branches:
-      - master
-
+    - main
 # on: push    # Default will running for every branch.
 
 jobs:
