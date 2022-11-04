@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import './ui/Screens/HomeScreen/HomeTopBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         fontFamily: 'Metropolis',
         primarySwatch: Colors.blue,
       ),
@@ -83,11 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   // Here we take the value from the MyHomePage object that was created by
+      //   // the App.build method, and use it to set our appbar title.
+      //   title: Text(widget.title),
+      // ),
+      appBar: const HomeTopBar(), // for viewing the top bar on the screen
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
