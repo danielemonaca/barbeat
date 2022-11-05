@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../globals/theme/app_themes.dart';
 
-class RedButton extends StatefulWidget {
+class RedButton extends StatelessWidget {
   final String title;
   final bool isActivated;
   final Function()? action;
@@ -16,35 +16,30 @@ class RedButton extends StatefulWidget {
   static const shadow = RedButtonColor.redButtonShadow;
   static const padding = EdgeInsets.symmetric(horizontal: 75);
 
-  @override
-  State<RedButton> createState() => _RedButtonState();
-}
-
-class _RedButtonState extends State<RedButton> {
-  late bool isButtonActive = widget.isActivated;
+  final boxShadow = const BoxDecoration(
+    boxShadow: [
+      BoxShadow(
+        color: shadow,
+        offset: Offset(0, 5),
+        blurRadius: 15,
+      )
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: RedButton.shadow,
-            offset: Offset(0, 5),
-            blurRadius: 15,
-          )
-        ],
-      ),
+      decoration: isActivated ? boxShadow : null,
       child: ElevatedButton(
-        onPressed: isButtonActive ? widget.action : null,
+        onPressed: isActivated ? action : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: RedButton.red,
-          padding: RedButton.padding,
+          backgroundColor: red,
+          padding: padding,
           shape: const StadiumBorder(),
         ),
         child: Text(
-          widget.title,
+          title,
           style: const TextStyle(
             fontFamily: 'Inter-Bold',
             fontSize: 17,
