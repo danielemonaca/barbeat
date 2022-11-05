@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 /// A class that wraps [SharedPreferences] to provide a simple interface for
 /// storing and retrieving JSON objects. (in this case, for the preference of the user,
 /// in our case, the favourite cocktails, the settings, etc..)
