@@ -155,3 +155,7 @@ class SearchCard {
   // card description "18% alcohol"
   static const drinkCardDescription = Color(0xFFB7B7B7);
 }
+
+class RedButtonColor {
+  static const redButton = Color(0xFFF54749);
+}
