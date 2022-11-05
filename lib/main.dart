@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'ui/screens/home/home_topbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,12 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   // Here we take the value from the MyHomePage object that was created by
-      //   // the App.build method, and use it to set our appbar title.
-      //   title: Text(widget.title),
-      // ),
-      appBar: const HomeTopBar(), // for viewing the top bar on the screen
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
