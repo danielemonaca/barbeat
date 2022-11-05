@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'ui/Screens/HomeScreen/home_topbar.dart';
-import './ui/Buttons/red_button.dart';
+import 'ui/screens/home/home_topbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,12 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            // placed here just to visually see the button on the screen, can be removed whenever
-            RedButton(
-              title: 'Go to cocktail page',
-              action: () => print('hello'),
-              isActivated: true,
             ),
           ],
         ),
