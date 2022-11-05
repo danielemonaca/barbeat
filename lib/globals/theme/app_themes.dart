@@ -158,4 +158,6 @@ class SearchCard {
 
 class RedButtonColor {
   static const redButton = Color(0xFFF54749);
+
+  static const redButtonShadow = Color(0x59F54749);
 }
