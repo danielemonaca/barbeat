@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "669548527732",
+    "project_id": "barbeat-1",
+    "storage_bucket": "barbeat-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669548527732:android:84ae4037f446910d545121",
+        "android_client_info": {
+          "package_name": "com.example.barbeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669548527732-c9vg5uk1gvdaln577bbu9jbhf1smk23t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMupEz0FyRv_998cGpkV6SEHQyhzYqmHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669548527732-c9vg5uk1gvdaln577bbu9jbhf1smk23t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "669548527732-fcsvm2rd691h0dteikdbih3io565c6r0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.barbeat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
