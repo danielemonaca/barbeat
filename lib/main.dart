@@ -3,13 +3,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
@@ -35,7 +35,6 @@ class MyApp extends StatelessWidget {
           future: _fbApp,
           builder: (context, snapshot) {
             if (snapshot.hasError) {
-              print('You have an error! ${snapshot.error.toString()}');
               return const Text('Something went wrong');
             } else if (snapshot.hasData) {
               return const MyHomePage(title: 'Flutter Demo Home Page');
