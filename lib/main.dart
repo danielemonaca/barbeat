@@ -5,34 +5,47 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
-Future<void> main() async {
+main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
-        fontFamily: 'Metropolis',
-        primarySwatch: Colors.blue,
-      ),
-      // imported class for localization purposes
-      supportedLocales: L10n.all,
-      // needed for localization
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate
-      ],
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+          fontFamily: 'Metropolis',
+          primarySwatch: Colors.blue,
+        ),
+        // imported class for localization purposes
+        supportedLocales: L10n.all,
+        // needed for localization
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+        home: FutureBuilder(
+          future: _fbApp,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print('You have an error! ${snapshot.error.toString()}');
+              return const Text('Something went wrong');
+            } else if (snapshot.hasData) {
+              return const MyHomePage(title: 'Flutter Demo Home Page');
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
+        ));
   }
 }
 
