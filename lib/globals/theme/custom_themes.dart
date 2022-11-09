@@ -14,7 +14,6 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     return ThemeData(
       primaryColor: Colors.white,
-      backgroundColor: const Color(0xFFF5F3ED),
       scaffoldBackgroundColor: Colors.white,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -22,6 +21,19 @@ class CustomTheme with ChangeNotifier {
             const Color(0xFFF54749),
           ),
         ),
+      ),
+      colorScheme: const ColorScheme(
+        primary: Colors.white,
+        onBackground: Colors.white,
+        onError: Colors.yellow,
+        onSecondary: Colors.white,
+        onSurface: Colors.white,
+        background: Colors.white,
+        secondary: Color(0xFFF5F3ED),
+        surface: Colors.white,
+        error: Colors.red,
+        onPrimary: Colors.black,
+        brightness: Brightness.light,
       ),
       textTheme: const TextTheme(
         headline1: TextStyle(
