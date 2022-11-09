@@ -36,34 +36,35 @@ class CustomTheme with ChangeNotifier {
         brightness: Brightness.light,
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           color: Colors.black,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           color: Colors.black,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 22.0,
           color: Colors.black,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 20.0,
           color: Colors.white,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
             color: Color(0xFF7A7A7A),
             fontSize: 13,
             fontFamily: 'Metrolpolis-SemiBold'),
-        bodyText2: TextStyle(
-            color: Color(0xFF7A7A7A),
-            fontSize: 16,
-            fontFamily: 'Metrolpolis-Medium'),
+        bodyMedium: TextStyle(
+          color: Color(0xFF7A7A7A),
+          fontSize: 16,
+          fontFamily: 'Metrolpolis-Medium',
+        ),
       ),
     );
   }
