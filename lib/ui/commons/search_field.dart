@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../globals/theme/app_themes.dart';
 
 class SearchField extends StatefulWidget {
   final String title;
@@ -20,6 +21,8 @@ class SearchField extends StatefulWidget {
 class _SearchFieldState extends State<SearchField> {
   final controller = TextEditingController();
   String input = '';
+  static const grey = HomeScreenColors.searchBarText;
+  static const shadow = SearchByIngredientsColors.shadow;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class _SearchFieldState extends State<SearchField> {
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Color(0x59DBDAD4),
+            color: shadow,
             offset: Offset(0, 5),
             blurRadius: 20,
           )
@@ -50,21 +53,21 @@ class _SearchFieldState extends State<SearchField> {
           hintText: widget.title,
           hintStyle: const TextStyle(
             fontSize: 17,
-            color: Color(0xFFB5B5B5),
+            color: grey,
           ),
           suffixIcon: input.isEmpty
               ? const Align(
                   widthFactor: 3.5,
                   child: Icon(
                     Icons.search,
-                    color: Color(0xFFB5B5B5),
+                    color: grey,
                   ),
                 )
               : Align(
                   widthFactor: 1.5,
                   child: IconButton(
                     icon: const Icon(Icons.clear),
-                    color: const Color(0xFFB5B5B5),
+                    color: grey,
                     onPressed: () => setState(
                       () {
                         controller.clear();

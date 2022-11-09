@@ -1,3 +1,4 @@
+import 'package:barbeat/globals/theme/custom_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
@@ -14,11 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFFFFFFFF),
-        fontFamily: 'Metropolis',
-        primarySwatch: Colors.blue,
-      ),
+      theme: CustomTheme.lightTheme,
       // imported class for localization purposes
       supportedLocales: L10n.all,
       // needed for localization
