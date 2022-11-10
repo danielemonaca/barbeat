@@ -12,7 +12,6 @@ class RedButton extends StatelessWidget {
       required this.action,
       required this.isActivated});
 
-  // static const red = RedButtonColor.redButton;
   static const shadow = RedButtonColor.redButtonShadow;
   static const padding = EdgeInsets.symmetric(horizontal: 75);
 
@@ -34,7 +33,6 @@ class RedButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isActivated ? action : null,
         style: ElevatedButton.styleFrom(
-          // backgroundColor: red,
           padding: padding,
           shape: const StadiumBorder(),
         ),

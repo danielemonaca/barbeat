@@ -22,7 +22,7 @@ class _SearchFieldState extends State<SearchField> {
   final controller = TextEditingController();
   String input = '';
   static const grey = HomeScreenColors.searchBarText;
-  static const shadow = SearchByIngredientsColors.shadow;
+  static const shadow = SearchByIngredientsColors.greyShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _SearchFieldState extends State<SearchField> {
             },
           ),
           widget.action()
-        }, // temporary
+        }, // TODO: modify here in the future
         decoration: InputDecoration(
           fillColor: Colors.white,
           filled: true,

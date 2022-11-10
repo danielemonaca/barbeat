@@ -119,9 +119,9 @@ class SearchByIngredientsColors extends SettingsScreenColors {
   // refer to menuCardText in HomeScreenColors
 
   // ingredient name search slider located at bottom of screen
-  static const ingredientSlider = Color(0xFFF1EFE8);
+  static const greyIngredientSlider = Color(0xFFF1EFE8);
 
-  static const shadow = Color(0x59DBDAD4);
+  static const greyShadow = Color(0x59DBDAD4);
 
   // "ingredient name" search bar
   // same as search icon

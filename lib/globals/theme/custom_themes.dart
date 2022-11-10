@@ -3,65 +3,63 @@ import 'package:flutter/material.dart';
 CustomTheme currentTheme = CustomTheme();
 
 class CustomTheme with ChangeNotifier {
-  // static bool _isDarkTheme = false;
-  // ThemeMode get currentTheme => _isDarkTheme ? ThemeMode.dark : ThemeMode.light;
-
-  // void toggleTheme() {
-  //   _isDarkTheme = !_isDarkTheme;
-  //   notifyListeners();
-  // }
-
   static ThemeData get lightTheme {
+    final redButtonColor = MaterialStateProperty.all(
+      const Color(0xFFF54749),
+    );
+
+    const white = Colors.white;
+    const yellow = Colors.yellow;
+    const lightgrey = Color(0xFFF5F3ED);
+    const grey = Color(0xFF7A7A7A);
+    const black = Colors.black;
+
     return ThemeData(
-      primaryColor: Colors.white,
-      scaffoldBackgroundColor: Colors.white,
+      primaryColor: white,
+      scaffoldBackgroundColor: white,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-            const Color(0xFFF54749),
-          ),
+          backgroundColor: redButtonColor,
         ),
       ),
       colorScheme: const ColorScheme(
-        primary: Colors.white,
-        onBackground: Colors.white,
-        onError: Colors.yellow,
-        onSecondary: Colors.white,
-        onSurface: Colors.white,
-        background: Colors.white,
-        secondary: Color(0xFFF5F3ED),
-        surface: Colors.white,
+        primary: white,
+        onBackground: white,
+        onError: yellow,
+        onSecondary: white,
+        onSurface: white,
+        background: white,
+        secondary: lightgrey,
+        surface: white,
         error: Colors.red,
-        onPrimary: Colors.black,
+        onPrimary: black,
         brightness: Brightness.light,
       ),
       textTheme: const TextTheme(
         displayLarge: TextStyle(
-          color: Colors.black,
+          color: black,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
         displayMedium: TextStyle(
-          color: Colors.black,
+          color: black,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
         displaySmall: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 22.0,
-          color: Colors.black,
+          color: black,
         ),
         headlineMedium: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 20.0,
-          color: Colors.white,
+          color: white,
         ),
         bodyLarge: TextStyle(
-            color: Color(0xFF7A7A7A),
-            fontSize: 13,
-            fontFamily: 'Metrolpolis-SemiBold'),
+            color: grey, fontSize: 13, fontFamily: 'Metrolpolis-SemiBold'),
         bodyMedium: TextStyle(
-          color: Color(0xFF7A7A7A),
+          color: grey,
           fontSize: 16,
           fontFamily: 'Metrolpolis-Medium',
         ),
