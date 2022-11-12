@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../globals/theme/app_themes.dart';
+
 class IntroPage3 extends StatelessWidget {
   const IntroPage3({super.key});
 
@@ -21,10 +23,34 @@ class IntroPage3 extends StatelessWidget {
           ),
           const SizedBox(
             width: 300,
-            child: Text(
-              'Find any Cocktail you want!',
+            child: Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'Find the Perfect ',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  TextSpan(
+                    text: 'Cocktail',
+                    style: TextStyle(
+                      color: GetStartedColors.cocktailWordColor,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ' For You',
+                    style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                ],
+              ),
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
           ),
           const Padding(

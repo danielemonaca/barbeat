@@ -64,6 +64,7 @@ class _IntroScreenState extends State<IntroScreen> {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 64,
+                    color: Colors.black,
                   ),
                 ),
               ],
