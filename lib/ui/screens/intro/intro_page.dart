@@ -2,13 +2,13 @@ import 'package:barbeat/globals/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
-  String cocktailImage;
-  String text1;
-  String text2;
-  String text3;
-  String description;
+  final String cocktailImage;
+  final String text1;
+  final String text2;
+  final String text3;
+  final String description;
 
-  IntroPage(
+  const IntroPage(
       {super.key,
       required this.cocktailImage,
       required this.text1,
