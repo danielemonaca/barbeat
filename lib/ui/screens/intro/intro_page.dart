@@ -1,9 +1,20 @@
+import 'package:barbeat/globals/theme/app_themes.dart';
 import 'package:flutter/material.dart';
 
-import '../../../globals/theme/app_themes.dart';
+class IntroPage extends StatelessWidget {
+  String cocktailImage;
+  String text1;
+  String text2;
+  String text3;
+  String description;
 
-class IntroPage2 extends StatelessWidget {
-  const IntroPage2({super.key});
+  IntroPage(
+      {super.key,
+      required this.cocktailImage,
+      required this.text1,
+      required this.text2,
+      required this.text3,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -14,37 +25,37 @@ class IntroPage2 extends StatelessWidget {
           Container(
             width: 350,
             height: 350,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/introImages/cocktail2.png'),
+                image: AssetImage(cocktailImage),
                 fit: BoxFit.fitHeight,
               ),
             ),
           ),
-          const SizedBox(
-            width: 300,
+          SizedBox(
+            width: 325,
             child: Text.rich(
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Find the Perfect ',
-                    style: TextStyle(
-                        fontSize: 25,
+                    text: text1,
+                    style: const TextStyle(
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
                   TextSpan(
-                    text: 'Cocktail',
-                    style: TextStyle(
+                    text: text2,
+                    style: const TextStyle(
                       color: GetStartedColors.cocktailWordColor,
-                      fontSize: 25,
+                      fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   TextSpan(
-                    text: ' For Your Fridge',
-                    style: TextStyle(
-                        fontSize: 25,
+                    text: text3,
+                    style: const TextStyle(
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                         color: Colors.black),
                   ),
@@ -53,14 +64,14 @@ class IntroPage2 extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: SizedBox(
               width: 300,
               child: Text(
-                'In BarBeat, you can search cocktails by the ingredients! Just open the fridge and insert what you have in the app, BarBeat will think about the rest!',
+                description,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15),
               ),
             ),
           ),

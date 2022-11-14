@@ -1,10 +1,9 @@
 import 'package:barbeat/ui/buttons/red_button.dart';
-import 'package:barbeat/ui/screens/intro/page_1.dart';
-import 'package:barbeat/ui/screens/intro/page_2.dart';
-import 'package:barbeat/ui/screens/intro/page_3.dart';
+import 'package:barbeat/ui/screens/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../globals/theme/app_themes.dart';
+import './intro_data.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -15,18 +14,32 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   final PageController _controller = PageController();
-  late int currentIndex;
 
-  @override
-  void initState() {
-    super.initState();
-    currentIndex = 0;
-    _controller.addListener(() {
-      setState(() {
-        currentIndex = _controller.page!.toInt();
-      });
-    });
-  }
+  bool onLastPage = false;
+
+  // double _visible = 0.0;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   currentIndex = 0;
+
+  //   print('initState');
+
+  //   _controller.addListener(() {
+  //     setState(() {
+  //       currentIndex = _controller.page!.toInt();
+  //     });
+
+  //     if (currentIndex == 2) {
+  //       setState(() {
+  //         Future.delayed(Duration(seconds: 4), () {
+  //           _visible = 1.0;
+  //         });
+  //       });
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,18 +85,25 @@ class _IntroScreenState extends State<IntroScreen> {
           ),
           PageView(
             controller: _controller,
-            children: const [
-              // *****page 1*****
-              IntroPage1(),
-              // *****page 2*****
-              IntroPage2(),
-              // *****page 3*****
-              IntroPage3(),
+            onPageChanged: (index) {
+              setState(() {
+                onLastPage = (index == 2);
+              });
+            },
+            children: [
+              for (var element in introData)
+                IntroPage(
+                  cocktailImage: element.cocktailImage,
+                  text1: element.text1,
+                  text2: element.text2,
+                  text3: element.text3,
+                  description: element.description,
+                )
             ],
           ),
           // dot indicators
           Container(
-            alignment: const Alignment(0, 0.77),
+            alignment: const Alignment(0, 0.76),
             child: SmoothPageIndicator(
               controller: _controller,
               count: 3,
@@ -94,7 +114,16 @@ class _IntroScreenState extends State<IntroScreen> {
               ),
             ),
           ),
-          currentIndex == 2
+          onLastPage
+              // ? AnimatedOpacity(
+              //     opacity: _visible,
+              //     duration: Duration(seconds: 4),
+              //     child: Container(
+              //       alignment: Alignment(0, 0.96),
+              //       child: RedButton(
+              //           title: 'Get Started', action: null, isActivated: true),
+              //     ),
+              //   )
               ? Container(
                   alignment: const Alignment(0, 0.96),
                   child: const RedButton(
