@@ -91,12 +91,10 @@ flutter:
 
   assets: 
     - assets/logos/logo.svg
-    - assets/introImages/get-started.png
     - assets/introImages/barbeat-logo.png
     - assets/introImages/cocktail1.png
     - assets/introImages/cocktail2.png
     - assets/introImages/background-pattern.png
-    - assets/introImages/rectangle.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
