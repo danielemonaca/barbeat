@@ -17,30 +17,6 @@ class _IntroScreenState extends State<IntroScreen> {
 
   bool onLastPage = false;
 
-  // double _visible = 0.0;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   currentIndex = 0;
-
-  //   print('initState');
-
-  //   _controller.addListener(() {
-  //     setState(() {
-  //       currentIndex = _controller.page!.toInt();
-  //     });
-
-  //     if (currentIndex == 2) {
-  //       setState(() {
-  //         Future.delayed(Duration(seconds: 4), () {
-  //           _visible = 1.0;
-  //         });
-  //       });
-  //     }
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -51,10 +27,36 @@ class _IntroScreenState extends State<IntroScreen> {
             height: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/introImages/get-started.png'),
-                fit: BoxFit.cover,
+                  image:
+                      AssetImage('assets/introImages/background-pattern.png'),
+                  fit: BoxFit.cover),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            color: const Color.fromRGBO(255, 255, 255, 0.9),
+          ),
+          Positioned(
+            bottom: -200,
+            right: -420,
+            child: Container(
+              width: 1680,
+              height: 820,
+              decoration: const BoxDecoration(boxShadow: [
+                BoxShadow(
+                    blurRadius: 28,
+                    offset: Offset(0, 240),
+                    color: Color(0x59C7C5C1))
+              ]),
+              child: CustomPaint(
+                size: Size(200, (200 * 0.5833333333333334).toDouble()),
+                painter: RPSCustomPainter(),
               ),
             ),
+          ),
+          Container(
+            alignment: const Alignment(0, 1),
             child: Column(
               children: [
                 Padding(
@@ -115,15 +117,6 @@ class _IntroScreenState extends State<IntroScreen> {
             ),
           ),
           onLastPage
-              // ? AnimatedOpacity(
-              //     opacity: _visible,
-              //     duration: Duration(seconds: 4),
-              //     child: Container(
-              //       alignment: Alignment(0, 0.96),
-              //       child: RedButton(
-              //           title: 'Get Started', action: null, isActivated: true),
-              //     ),
-              //   )
               ? Container(
                   alignment: const Alignment(0, 0.96),
                   child: const RedButton(
@@ -136,5 +129,33 @@ class _IntroScreenState extends State<IntroScreen> {
         ],
       ),
     );
+  }
+}
+
+// white bottom part
+class RPSCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint0 = Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1;
+
+    Path path0 = Path();
+    path0.moveTo(size.width * 0.5000000, size.height * 0.3571429);
+    path0.quadraticBezierTo(size.width * 0.6397917, size.height * 0.2871429,
+        size.width * 0.7500000, size.height * 0.3614286);
+    path0.lineTo(size.width * 0.7500000, size.height * 0.7857143);
+    path0.lineTo(size.width * 0.5000000, size.height * 0.7842857);
+    path0.quadraticBezierTo(size.width * 0.5000000, size.height * 0.6775000,
+        size.width * 0.5000000, size.height * 0.3571429);
+    path0.close();
+
+    canvas.drawPath(path0, paint0);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }
