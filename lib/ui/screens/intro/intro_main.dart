@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/buttons/red_button.dart';
+import 'package:barbeat/ui/screens/intro/background.dart';
 import 'package:barbeat/ui/screens/intro/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -22,69 +23,7 @@ class _IntroScreenState extends State<IntroScreen> {
     return Material(
       child: Stack(
         children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image:
-                      AssetImage('assets/introImages/background-pattern.png'),
-                  fit: BoxFit.cover),
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            color: const Color.fromRGBO(255, 255, 255, 0.9),
-          ),
-          Positioned(
-            bottom: -200,
-            right: -420,
-            child: Container(
-              width: 1680,
-              height: 820,
-              decoration: const BoxDecoration(boxShadow: [
-                BoxShadow(
-                    blurRadius: 28,
-                    offset: Offset(0, 240),
-                    color: Color(0x59C7C5C1))
-              ]),
-              child: CustomPaint(
-                size: Size(200, (200 * 0.5833333333333334).toDouble()),
-                painter: RPSCustomPainter(),
-              ),
-            ),
-          ),
-          Container(
-            alignment: const Alignment(0, 1),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 35, 0, 0),
-                  child: Container(
-                    width: 50,
-                    height: 50,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            AssetImage('assets/introImages/barbeat-logo.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                const Text(
-                  'BARBEAT',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 64,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const IntroBackground(),
           PageView(
             controller: _controller,
             onPageChanged: (index) {
@@ -129,33 +68,5 @@ class _IntroScreenState extends State<IntroScreen> {
         ],
       ),
     );
-  }
-}
-
-// white bottom part
-class RPSCustomPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint0 = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 1;
-
-    Path path0 = Path();
-    path0.moveTo(size.width * 0.5000000, size.height * 0.3571429);
-    path0.quadraticBezierTo(size.width * 0.6397917, size.height * 0.2871429,
-        size.width * 0.7500000, size.height * 0.3614286);
-    path0.lineTo(size.width * 0.7500000, size.height * 0.7857143);
-    path0.lineTo(size.width * 0.5000000, size.height * 0.7842857);
-    path0.quadraticBezierTo(size.width * 0.5000000, size.height * 0.6775000,
-        size.width * 0.5000000, size.height * 0.3571429);
-    path0.close();
-
-    canvas.drawPath(path0, paint0);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
   }
 }
