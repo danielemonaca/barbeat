@@ -8,7 +8,7 @@ class CustomOverflowCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Center(
       child: InkWell(
-        onTap: () => print('hello world'),
+        onTap: null,
         child: SizedBox(
           width: size.width * 0.35,
           height: size.height * 0.3,
