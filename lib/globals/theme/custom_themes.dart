@@ -13,6 +13,7 @@ class CustomTheme with ChangeNotifier {
     const lightgrey = Color(0xFFF5F3ED);
     const grey = Color(0xFF7A7A7A);
     const black = Colors.black;
+    const grey2 = Color(0x68686868);
 
     return ThemeData(
       primaryColor: white,
@@ -54,7 +55,7 @@ class CustomTheme with ChangeNotifier {
         headlineMedium: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 20.0,
-          color: white,
+          color: grey,
         ),
         bodyLarge: TextStyle(
             color: grey, fontSize: 13, fontFamily: 'Metrolpolis-SemiBold'),

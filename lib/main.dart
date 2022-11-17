@@ -1,4 +1,5 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
+import 'package:barbeat/ui/commons/custom_card.dart';
 import 'package:barbeat/ui/commons/custom_card_overflow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -69,12 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            CustomOverflowCard(
-              title: 'Mojito',
-              description: 'Minty flavour goodness',
-              image: 'assets/introImages/cocktail2.png',
+            CustomCard(
+              image: 'assets/homeCards/arrows.png',
               action: () => null,
-            ),
+              title: 'Random Cocktail',
+            )
           ],
         ),
       ),
