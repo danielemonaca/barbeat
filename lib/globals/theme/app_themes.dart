@@ -163,3 +163,7 @@ class RedButtonColor {
 
   static const redButtonShadow = Color(0x59F54749);
 }
+
+class TextColors {
+  static const defaultDarkGreyColor = Color(0xFF333333);
+}

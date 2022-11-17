@@ -28,7 +28,7 @@ class IntroPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(cocktailImage),
-                fit: BoxFit.fitHeight,
+                fit: BoxFit.contain,
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class IntroPage extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: TextColors.defaultDarkGreyColor),
                   ),
                   TextSpan(
                     text: text2,
@@ -57,7 +57,7 @@ class IntroPage extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: TextColors.defaultDarkGreyColor),
                   ),
                 ],
               ),
@@ -71,7 +71,7 @@ class IntroPage extends StatelessWidget {
               child: Text(
                 description,
                 textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 15),
+                style: const TextStyle(fontSize: 15, height: 1.4),
               ),
             ),
           ),
