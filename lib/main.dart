@@ -69,7 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const CustomOverflowCard(),
+            CustomOverflowCard(
+              title: 'Mojito',
+              description: 'Minty flavour goodness',
+              image: 'assets/introImages/cocktail2.png',
+              action: () => print('hello'),
+            ),
           ],
         ),
       ),
