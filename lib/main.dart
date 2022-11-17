@@ -1,6 +1,6 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
 import 'package:barbeat/ui/commons/custom_card.dart';
-import 'package:barbeat/ui/commons/custom_card_overflow.dart';
+// import 'package:barbeat/ui/commons/custom_card_overflow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
