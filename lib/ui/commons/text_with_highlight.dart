@@ -16,6 +16,7 @@ class TextWithHighlight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
+      textDirection: TextDirection.ltr,
       TextSpan(
         children: _buildTitleSpans(text, highlightedTexts),
       ),

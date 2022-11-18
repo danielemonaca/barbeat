@@ -1,5 +1,4 @@
-import 'package:barbeat/globals/theme/app_themes.dart';
-import 'package:barbeat/ui/commons/text_with_highlight/text_with_highlight.dart';
+import 'package:barbeat/ui/commons/text_with_highlight.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -24,7 +23,7 @@ class IntroPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            // This all section will change when we have RIVE animation
+            // This section will change when we have RIVE animation
             width: 350,
             height: 350,
             decoration: BoxDecoration(
@@ -47,7 +46,8 @@ class IntroPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
             child: SizedBox(
-              width: 300,
+              width: size.width * 0.88,
+              height: size.height * 0.17,
               child: Text(
                 description,
                 textAlign: TextAlign.center,

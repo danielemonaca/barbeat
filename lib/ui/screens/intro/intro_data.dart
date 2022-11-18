@@ -29,5 +29,5 @@ List<PageData> introData = [
       text: 'Find the Perfect Cocktail For You',
       highlightedText: 'Cocktail',
       description:
-          'In BarBeat, you can also search cocktails by the taste that you would like! Do you feel like a sweet drink? Do you feel like a low-alcohol level drink? No worries, BarBeat will think about it!')
+          'In BarBeat, you can also search cocktails by the taste that you would like! Do you feel like a sweet drink? Do you feel like a low-alcohol level drink? BarBeat will think about the rest!'),
 ];
