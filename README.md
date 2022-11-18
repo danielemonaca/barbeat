@@ -1,3 +1,5 @@
+[![Codemagic build status](https://api.codemagic.io/apps/636ed9e122caac031fb4686f/636ed9e122caac031fb4686e/status_badge.svg)](https://codemagic.io/apps/636ed9e122caac031fb4686f/636ed9e122caac031fb4686e/latest_build)
+
 # barbeat
 
 
