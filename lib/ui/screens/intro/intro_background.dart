@@ -82,9 +82,7 @@ class IntroBackground extends StatelessWidget {
             child: SvgPicture.asset(
               whiteBottomPart,
               fit: BoxFit.cover,
-            )
-            // Default: 2
-            ),
+            )),
       ),
     );
   }
