@@ -39,9 +39,8 @@ class _IntroScreenState extends State<IntroScreen> {
               for (var element in introData)
                 IntroPage(
                   cocktailImage: element.cocktailImage,
-                  text1: element.text1,
-                  text2: element.text2,
-                  text3: element.text3,
+                  text: element.text,
+                  highlightedText: element.highlightedText,
                   description: element.description,
                 )
             ],
