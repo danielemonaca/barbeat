@@ -15,8 +15,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     String imgType = image.substring(image.length - 3);
-    // ignore: no_leading_underscores_for_local_identifiers
-    const _black = Color(0x40000000);
+    const black = Color(0x40000000);
     return Center(
       child: InkWell(
         onTap: action,
@@ -29,7 +28,7 @@ class CustomCard extends StatelessWidget {
             boxShadow: const [
               BoxShadow(
                 blurRadius: 4,
-                color: _black,
+                color: black,
                 offset: Offset(0, 4),
               ),
             ],
