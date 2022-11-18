@@ -56,34 +56,37 @@ class CustomOverflowCard extends StatelessWidget {
                       : SvgPicture.asset(image),
                 ),
               ),
-              // the title
               Positioned(
-                top: 190,
-                left: 80,
+                top: 160,
+                left: 20,
                 child: SizedBox(
-                  width: size.width * 0.2,
                   height: size.height * 0.15,
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
-                  ),
-                ),
-              ),
-              // the description
-              Positioned(
-                top: 220,
-                left: 25,
-                child: SizedBox(
-                  width: size.width * 0.5,
-                  height: size.height * 0.15,
-                  child: Text(
-                    description,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: size.width * 0.2,
+                        height: size.height * 0.04,
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.5,
+                        height: size.height * 0.04,
+                        child: Text(
+                          description,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               )
