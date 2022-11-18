@@ -71,10 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             CustomCard(
-              image: 'assets/homeCards/arrows.png',
+              image: 'assets/homeCards/arrows.svg',
               action: () => null,
               title: 'Random Cocktail',
             )
+            // CustomOverflowCard(
+            //     title: 'Mojito',
+            //     description: 'the best drink ever',
+            //     image: 'assets/introImages/cocktail2.png',
+            //     action: () => null)
           ],
         ),
       ),

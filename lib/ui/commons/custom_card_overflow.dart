@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomOverflowCard extends StatelessWidget {
   final String title;
@@ -16,6 +17,7 @@ class CustomOverflowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    String imgType = image.substring(image.length - 3);
     return Center(
       child: InkWell(
         onTap: action,
@@ -49,7 +51,9 @@ class CustomOverflowCard extends StatelessWidget {
                 child: SizedBox(
                   width: size.width * 0.35,
                   height: size.height * 0.35,
-                  child: Image.asset(image),
+                  child: imgType == 'png'
+                      ? Image.asset(image)
+                      : SvgPicture.asset(image),
                 ),
               ),
               // the title
