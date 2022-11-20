@@ -69,11 +69,11 @@ class IntroBackground extends StatelessWidget {
   Widget _buildWhiteBottomPart(Size size) {
     const whiteBottomPart = 'assets/introImages/white_bottom_part.svg';
     const shadowWhiteBottomPartColor = Color(0xFFC7C5C1);
-
-    return BottomCenter(
+    return Positioned(
+      bottom: -40,
       child: SizedBox(
         width: size.width,
-        height: size.height * 0.52,
+        height: size.height * 0.65,
         child: SimpleShadow(
             opacity: 0.40,
             color: shadowWhiteBottomPartColor,
