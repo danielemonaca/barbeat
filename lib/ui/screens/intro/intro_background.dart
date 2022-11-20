@@ -1,5 +1,4 @@
 import 'package:barbeat/globals/theme/app_themes.dart';
-import 'package:extra_alignments/extra_alignments.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_shadow/simple_shadow.dart';
