@@ -20,8 +20,8 @@ class CustomCard extends StatelessWidget {
       child: InkWell(
         onTap: action,
         child: Container(
-          width: size.width * 0.3,
-          height: size.height * 0.15,
+          width: size.width * 0.35,
+          height: size.height * 0.17,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18),
@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
             children: [
               SizedBox(
                 width: size.width * 0.13,
-                height: size.height * 0.07,
+                height: size.height * 0.09,
                 child: imgType == 'png'
                     ? Image.asset(image)
                     : SvgPicture.asset(image),
