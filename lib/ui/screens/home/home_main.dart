@@ -10,8 +10,8 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: const HomeTopBar(),
       body: Column(
-        children: const [
-          HeadlineSearch(),
+        children: [
+          HeadlineSearch(action: () => null),
         ],
       ),
     );

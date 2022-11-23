@@ -2,11 +2,14 @@ import 'package:barbeat/ui/commons/search_field.dart';
 import 'package:flutter/material.dart';
 
 class HeadlineSearch extends StatelessWidget {
-  const HeadlineSearch({super.key});
+  final Function() action;
+  const HeadlineSearch({super.key, required this.action});
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    const black = Colors.black;
+
     return Align(
       alignment: Alignment.center,
       child: SizedBox(
@@ -18,16 +21,20 @@ class HeadlineSearch extends StatelessWidget {
               const Text(
                 'What would you like to drink?',
                 style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: black,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
-                child: SearchField(
-                    title: 'Search cocktail',
-                    action: () => null,
-                    width: size.width * 1),
+                child: GestureDetector(
+                  onTap: action,
+                  child: SearchField(
+                      title: 'Search cocktail',
+                      action: () => null,
+                      width: size.width),
+                ),
               ),
             ],
           ),
