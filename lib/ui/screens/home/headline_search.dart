@@ -9,13 +9,14 @@ class HeadlineSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     const black = Colors.black;
+    const padding = EdgeInsets.only(top: 20);
 
     return Align(
       alignment: Alignment.center,
       child: SizedBox(
         width: size.width * 0.85,
         child: Padding(
-          padding: const EdgeInsets.only(top: 20),
+          padding: padding,
           child: Column(
             children: [
               const Text(
@@ -27,13 +28,14 @@ class HeadlineSearch extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: padding,
                 child: GestureDetector(
                   onTap: action,
                   child: SearchField(
-                      title: 'Search cocktail',
-                      action: () => null,
-                      width: size.width),
+                    title: 'Search cocktail',
+                    action: () => null,
+                    width: size.width,
+                  ),
                 ),
               ),
             ],
