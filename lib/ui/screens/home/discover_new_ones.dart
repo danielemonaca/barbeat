@@ -31,6 +31,7 @@ class DiscoverNewOnes extends StatelessWidget {
               ),
               Expanded(
                 child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2),
                   itemCount: data.length,
