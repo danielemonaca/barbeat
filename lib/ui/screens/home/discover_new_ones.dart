@@ -15,7 +15,7 @@ class DiscoverNewOnes extends StatelessWidget {
       alignment: Alignment.center,
       child: SizedBox(
         width: size.width * 0.8,
-        height: size.height * 0.5,
+        height: size.height * 0.6,
         child: Padding(
           padding: padding,
           child: Column(
@@ -31,8 +31,10 @@ class DiscoverNewOnes extends StatelessWidget {
               ),
               Expanded(
                 child: GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2),
+                    crossAxisCount: 2,
+                  ),
                   itemCount: data.length,
                   itemBuilder: (context, index) {
                     final item = data[index];
