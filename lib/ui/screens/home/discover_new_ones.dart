@@ -67,7 +67,7 @@ List<CardInfo> gridData = [
       title: 'Search by Ingredient',
       action: () => null),
   CardInfo(
-      image: 'assets/homeCards/tongue.svg',
+      image: 'assets/homeCards/arrows.svg',
       title: 'Search by Taste',
       action: () => null),
   CardInfo(

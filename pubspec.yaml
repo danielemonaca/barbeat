@@ -104,7 +104,6 @@ flutter:
     - assets/introImages/background-pattern.png
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
-    - assets/homeCards/tongue.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -11,7 +11,6 @@ class CustomTheme with ChangeNotifier {
     const white = Colors.white;
     const yellow = Colors.yellow;
     const lightgrey = Color(0xFFF5F3ED);
-    const grey = Color(0xFF7A7A7A);
     const black = Colors.black;
 
     const darkGreyText = Color(0xFF686868);
