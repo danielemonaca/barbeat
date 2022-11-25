@@ -1,0 +1,27 @@
+// These are the current garnishes that are currently available in the CIG
+
+enum IngredientsRequiringGarnish {
+  cherry,
+  freshLimeJuice,
+  apple,
+  fruit,
+  orangeSlice,
+  orangePeel,
+  freshMint,
+  basil,
+  grapes,
+  cherries,
+  strawberries,
+  lemon,
+  lime,
+  lemonSlice,
+  limeSlice,
+  mint,
+  maraschinoCherry,
+  limePeel,
+  lemonPeel,
+  orange,
+  berries,
+  ice,
+  squeezedOrange,
+}

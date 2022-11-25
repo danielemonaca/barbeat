@@ -1,3 +1,4 @@
+import 'package:barbeat/cig/cocktail_animation.dart';
 import 'package:barbeat/ui/commons/text_with_highlight.dart';
 import 'package:flutter/material.dart';
 
@@ -22,16 +23,11 @@ class IntroPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          const SizedBox(
             // This section will change when we have RIVE animation
             width: 350,
             height: 350,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(cocktailImage),
-                fit: BoxFit.contain,
-              ),
-            ),
+            child: CocktailAnimation(),
           ),
           SizedBox(
             width: size.width * 0.8,

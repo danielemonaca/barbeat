@@ -57,6 +57,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   firebase_core: ^2.1.1
   simple_shadow: ^0.3.0
+  rive: ^0.9.0
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +108,7 @@ flutter:
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
     - assets/homeCards/tongue.svg
+    - assets/animations/cocktail_glass.riv
 
   # To add assets to your application, add an assets section, like this:
   # assets:

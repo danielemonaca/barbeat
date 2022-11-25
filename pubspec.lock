@@ -224,6 +224,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.1.5"
+  graphs:
+    dependency: transitive
+    description:
+      name: graphs
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   http:
     dependency: "direct main"
     description:
@@ -399,6 +406,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.4"
+  rive:
+    dependency: "direct main"
+    description:
+      name: rive
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.1"
   rnd:
     dependency: "direct main"
     description:

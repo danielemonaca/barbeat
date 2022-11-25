@@ -1,6 +1,8 @@
+import 'package:barbeat/cig/cocktail_animation.dart';
 import 'package:barbeat/globals/theme/custom_themes.dart';
 // import 'package:barbeat/ui/commons/custom_card.dart';
 import 'package:barbeat/ui/commons/custom_card_overflow.dart';
+import 'package:barbeat/ui/screens/intro/intro_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import './l10n/l10n.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const IntroScreen(),
     );
   }
 }
@@ -63,9 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
