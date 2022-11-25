@@ -13,6 +13,7 @@ class CustomTheme with ChangeNotifier {
     const lightgrey = Color(0xFFF5F3ED);
     const grey = Color(0xFF7A7A7A);
     const black = Colors.black;
+    const barbeatDarkGrey = Color(0xFF333333);
 
     return ThemeData(
       primaryColor: white,
@@ -37,19 +38,19 @@ class CustomTheme with ChangeNotifier {
       ),
       textTheme: const TextTheme(
         displayLarge: TextStyle(
-          color: black,
+          color: barbeatDarkGrey,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
         displayMedium: TextStyle(
-          color: black,
+          color: barbeatDarkGrey,
           fontFamily: 'Metropolis-Bold',
           fontSize: 28.0,
         ),
         displaySmall: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
           fontSize: 22.0,
-          color: black,
+          color: barbeatDarkGrey,
         ),
         headlineMedium: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
