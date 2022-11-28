@@ -14,6 +14,8 @@ class CustomTheme with ChangeNotifier {
     const grey = Color(0xFF7A7A7A);
     const black = Colors.black;
 
+    const darkGreyText = Color(0xFF686868);
+
     return ThemeData(
       primaryColor: white,
       scaffoldBackgroundColor: white,
@@ -53,15 +55,18 @@ class CustomTheme with ChangeNotifier {
         ),
         headlineMedium: TextStyle(
           fontFamily: 'Metropolis-SemiBold',
-          fontSize: 20.0,
-          color: grey,
+          fontSize: 17.0,
+          fontWeight: FontWeight.w500,
+          color: darkGreyText,
         ),
         bodyLarge: TextStyle(
-            color: grey, fontSize: 13, fontFamily: 'Metrolpolis-SemiBold'),
+            color: darkGreyText,
+            fontSize: 13,
+            fontFamily: 'Metropolis-SemiBold'),
         bodyMedium: TextStyle(
-          color: grey,
-          fontSize: 16,
-          fontFamily: 'Metrolpolis-Medium',
+          color: darkGreyText,
+          fontSize: 18,
+          fontFamily: 'Metropolis-Medium',
         ),
       ),
     );
