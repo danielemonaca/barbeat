@@ -10,6 +10,8 @@ class HeadlineSearch extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     const black = Colors.black;
     const padding = EdgeInsets.only(top: 20);
+    String title = 'What would you like to drink?';
+    String searchCaption = 'Search cocktail';
 
     return Align(
       alignment: Alignment.center,
@@ -19,9 +21,9 @@ class HeadlineSearch extends StatelessWidget {
           padding: padding,
           child: Column(
             children: [
-              const Text(
-                'What would you like to drink?',
-                style: TextStyle(
+              Text(
+                title,
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: black,
@@ -32,7 +34,7 @@ class HeadlineSearch extends StatelessWidget {
                 child: GestureDetector(
                   onTap: action,
                   child: SearchField(
-                    title: 'Search cocktail',
+                    title: searchCaption,
                     action: () => null,
                     width: size.width,
                   ),
