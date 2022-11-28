@@ -8,7 +8,7 @@ class MostPopular extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = listData;
     Size size = MediaQuery.of(context).size;
-    final padding = EdgeInsets.only(top: 25, left: size.width * 0.12);
+    final padding = EdgeInsets.only(left: size.width * 0.12);
     const black = Colors.black;
     return Align(
       alignment: Alignment.center,
