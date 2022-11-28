@@ -75,8 +75,8 @@ List<CardData> listData = [
       image: 'assets/dummyPhotos/mojito.png',
       action: () => null),
   CardData(
-      title: 'Lime Spritz',
-      description: 'The Red Surprise',
+      title: 'Chase the cold away smoothie',
+      description: 'The Red Surprise that never disapoints!',
       image: 'assets/dummyPhotos/redCocktail.png',
       action: () => null),
 ];

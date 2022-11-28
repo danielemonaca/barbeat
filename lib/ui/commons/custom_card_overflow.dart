@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class CustomOverflowCard extends StatelessWidget {
   final String title;
@@ -61,14 +62,17 @@ class CustomOverflowCard extends StatelessWidget {
                 left: 20,
                 child: SizedBox(
                   height: size.height * 0.15,
+                  width: size.width * 0.5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: size.width * 0.2,
+                        width: size.width * 0.4,
                         height: size.height * 0.04,
-                        child: Text(
+                        // fit: BoxFit.contain,
+                        child: AutoSizeText(
+                          maxLines: 2,
                           title,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
@@ -78,9 +82,11 @@ class CustomOverflowCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.5,
+                        width: size.width * 0.4,
                         height: size.height * 0.04,
-                        child: Text(
+                        // fit: BoxFit.contain,
+                        child: AutoSizeText(
+                          maxLines: 2,
                           description,
                           textAlign: TextAlign.center,
                           style: Theme.of(context).textTheme.bodyMedium,
