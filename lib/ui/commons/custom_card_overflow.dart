@@ -70,7 +70,6 @@ class CustomOverflowCard extends StatelessWidget {
                       SizedBox(
                         width: size.width * 0.4,
                         height: size.height * 0.04,
-                        // fit: BoxFit.contain,
                         child: AutoSizeText(
                           maxLines: 2,
                           title,
@@ -84,7 +83,6 @@ class CustomOverflowCard extends StatelessWidget {
                       SizedBox(
                         width: size.width * 0.4,
                         height: size.height * 0.04,
-                        // fit: BoxFit.contain,
                         child: AutoSizeText(
                           maxLines: 2,
                           description,
