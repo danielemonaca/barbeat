@@ -52,7 +52,7 @@ class RiveCustomHelper {
   _getAllNodes() {
     final mainGroup =
         _mainNode.artboard?.children.first.artboard?.children.first as Node;
-
+// ignoring next lint error as it is not bad to have an extra nullish-check for the mainGroup
     // ignore: unnecessary_null_comparison
     if (mainGroup == null) {
       throw Exception(
