@@ -16,12 +16,14 @@ class CustomCard extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     String imgType = image.substring(image.length - 3);
     const black = Color(0x40000000);
-    return Center(
+
+    return Align(
+      alignment: Alignment.center,
       child: InkWell(
         onTap: action,
         child: Container(
-          width: size.width * 0.3,
-          height: size.height * 0.15,
+          width: size.width * 0.36,
+          height: size.height * 0.19,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18),
@@ -39,15 +41,18 @@ class CustomCard extends StatelessWidget {
             children: [
               SizedBox(
                 width: size.width * 0.13,
-                height: size.height * 0.07,
+                height: size.height * 0.09,
                 child: imgType == 'png'
                     ? Image.asset(image)
                     : SvgPicture.asset(image),
               ),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium,
+              SizedBox(
+                width: size.width * 0.25,
+                child: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
               )
             ],
           ),

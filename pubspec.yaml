@@ -56,6 +56,7 @@ dependencies:
   shared_preferences: ^2.0.15
   internet_connection_checker: ^1.0.0+1
   firebase_core: ^2.1.1
+  auto_size_text: ^3.0.0
   simple_shadow: ^0.3.0
   rive: ^0.9.0
 
@@ -107,8 +108,9 @@ flutter:
     - assets/introImages/background-pattern.png
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
-    - assets/homeCards/tongue.svg
     - assets/animations/rive_animation.riv
+    - assets/dummyPhotos/mojito.png
+    - assets/dummyPhotos/redCocktail.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
