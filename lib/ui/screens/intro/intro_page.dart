@@ -1,5 +1,3 @@
-import 'package:barbeat/cig/CIG.dart';
-import 'package:barbeat/cig/cocktail_animation.dart';
 import 'package:barbeat/ui/commons/text_with_highlight.dart';
 import 'package:flutter/material.dart';
 

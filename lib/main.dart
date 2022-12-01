@@ -1,4 +1,3 @@
-import 'package:barbeat/cig/cocktail_animation.dart';
 import 'package:barbeat/globals/theme/custom_themes.dart';
 // import 'package:barbeat/ui/commons/custom_card.dart';
 import 'package:barbeat/ui/commons/custom_card_overflow.dart';

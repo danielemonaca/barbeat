@@ -3,7 +3,6 @@
 import 'package:barbeat/helpers/camel_to_sentence.dart';
 import 'package:flutter/foundation.dart';
 
-
 enum IngredientsRequiringGarnish {
   cherry,
   freshLimeJuice,

@@ -94,7 +94,7 @@ class RiveCustomHelper {
     final node = _getNode(nodeName);
 
     final stroke = node.strokes.first.children[0] as SolidColor;
-    
+
     stroke.colorValue = Color(stringColorToHex(color)).value;
   }
 

@@ -28,7 +28,6 @@ void main() {
     List<GarnishWithMachineInput> result =
         garnishesToStateMachineInputs(ingredients);
 
-    // print the result to see what is going on
 
     // Asset
     expect(result.length, expected.length);

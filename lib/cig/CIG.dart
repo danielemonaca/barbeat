@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 
 import 'package:barbeat/cig/helpers/rive_custom_helper.dart';
-import 'package:barbeat/cig/helpers/string_color_to_hex.dart';
 import 'package:barbeat/common_libs.dart';
 import 'package:barbeat/cig/helpers/garnishes_to_state_machine_inputs.dart';
 import 'package:barbeat/cig/helpers/get_artwork_by_glass.dart';
@@ -9,7 +8,6 @@ import 'package:barbeat/cig/helpers/ingredients_to_garnishes.dart';
 import 'package:barbeat/models/artworks.dart';
 import 'package:barbeat/models/garnish_with_machine_input.dart';
 import 'package:barbeat/models/state_machine_input.dart';
-import 'package:rive/components.dart';
 import 'package:rive/rive.dart';
 
 class CIG extends StatefulWidget {
@@ -30,15 +28,13 @@ class CIG extends StatefulWidget {
 }
 
 class _CIG extends State<CIG> {
-  late StateMachineController _controller;
+  // ignore: unused_field
+  late StateMachineController _controller; // Only used for state update
 
   final _animationStateName = 'animation_state_cocktail_glass';
   final _riveFileLocation = 'assets/animations/rive_animation.riv';
 
   void _onInit(Artboard art) {
-    final ctrl = StateMachineController.fromArtboard(art, _animationStateName)
-        as StateMachineController;
-
     final riveHelper = RiveCustomHelper.fromArtboard(art, _animationStateName);
 
     // 1. Activate inputs
@@ -67,7 +63,7 @@ class _CIG extends State<CIG> {
     }
 
     setState(() {
-      _controller = ctrl;
+      _controller = riveHelper.getController();
     });
   }
 
