@@ -1,9 +1,10 @@
+import 'package:barbeat/cig/CIG.dart';
 import 'package:barbeat/cig/cocktail_animation.dart';
 import 'package:barbeat/ui/commons/text_with_highlight.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
-  final String cocktailImage;
+  final Widget cocktailImage;
   final String text;
   final String highlightedText;
   final String description;
@@ -23,11 +24,11 @@ class IntroPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
+          SizedBox(
             // This section will change when we have RIVE animation
             width: 350,
             height: 350,
-            child: CocktailAnimation(),
+            child: cocktailImage,
           ),
           SizedBox(
             width: size.width * 0.8,

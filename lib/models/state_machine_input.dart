@@ -7,15 +7,22 @@
  */
 
 // ignore_for_file: constant_identifier_names
+import 'package:barbeat/helpers/camel_to_sentence.dart';
+import 'package:flutter/foundation.dart';
+
 enum StateMachineInput {
   Apple,
   Basil,
   Cherry,
   GreenOlives,
-  ice,
+  Ice,
   Mint,
   Orange,
   Peel,
-  Strawbeery,
+  Strawberry,
   Thyme,
+}
+
+extension StateMachineInputExtension on StateMachineInput {
+  String get name => camelToSentence(describeEnum(this));
 }

@@ -108,7 +108,7 @@ flutter:
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
     - assets/homeCards/tongue.svg
-    - assets/animations/cocktail_glass.riv
+    - assets/animations/rive_animation.riv
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,5 +1,8 @@
+import 'package:barbeat/cig/CIG.dart';
+import 'package:barbeat/common_libs.dart';
+
 class PageData {
-  String cocktailImage;
+  Widget cocktailImage;
   String text;
   String highlightedText;
   String description;
@@ -13,19 +16,22 @@ class PageData {
 
 List<PageData> introData = [
   PageData(
-      cocktailImage: 'assets/introImages/cocktail1.png',
+      cocktailImage: CIG(
+          const ['lime', 'ice', 'Lime Peel'], '#DF4141', 'Martini Glass', true),
       text: 'Find any Cocktail you want',
       highlightedText: 'Cocktail',
       description:
           'In BarBeat, you can search any cocktail you can think of! We have more than 500 cocktails available for you to discover'),
   PageData(
-      cocktailImage: 'assets/introImages/cocktail2.png',
+      cocktailImage: CIG(
+          const ['lime', 'ice', 'Lime Peel'], '#DF4141', 'Martini Glass', true),
       text: 'Find the Perfect Cocktail For Your Fridge',
       highlightedText: 'Cocktail',
       description:
           'In BarBeat, you can search cocktails by the ingredients! Just open the fridge and insert what you have in the app, BarBeat will think about the rest!'),
   PageData(
-      cocktailImage: 'assets/introImages/cocktail1.png',
+      cocktailImage: CIG(
+          const ['lime', 'ice', 'Lime Peel'], '#DF4141', 'Martini Glass', true),
       text: 'Find the Perfect Cocktail For You',
       highlightedText: 'Cocktail',
       description:

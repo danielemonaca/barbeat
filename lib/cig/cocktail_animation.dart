@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:barbeat/models/artworks.dart';
 
 class CocktailAnimation extends StatefulWidget {
   const CocktailAnimation({Key? key}) : super(key: key);
@@ -13,6 +14,8 @@ class _CocktailAnimationState extends State<CocktailAnimation> {
 
   late StateMachineController _controller;
   SMIBool? _bump;
+
+  final _rive_file_location = 'assets/animations/cocktail_glass.riv';
 
   @override
   void initState() {
@@ -37,8 +40,8 @@ class _CocktailAnimationState extends State<CocktailAnimation> {
   Widget build(BuildContext context) {
     // Getting/setting state machine input values
 
-    return RiveAnimation.asset('assets/animations/cocktail_glass.riv',
-        artboard: 'CocktailGlass',
+    return RiveAnimation.asset(_rive_file_location,
+        artboard: ArtWork.CocktailGlass.name,
         stateMachines: const ['animation_state_cocktail_glass'],
         alignment: Alignment.center,
         fit: BoxFit.contain,

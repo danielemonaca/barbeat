@@ -1,5 +1,9 @@
 // These are the current garnishes that are currently available in the CIG
 
+import 'package:barbeat/helpers/camel_to_sentence.dart';
+import 'package:flutter/foundation.dart';
+
+
 enum IngredientsRequiringGarnish {
   cherry,
   freshLimeJuice,
@@ -24,4 +28,8 @@ enum IngredientsRequiringGarnish {
   berries,
   ice,
   squeezedOrange,
+}
+
+extension IngredientsRequiringGarnishExtension on IngredientsRequiringGarnish {
+  String get name => camelToSentence(describeEnum(this));
 }

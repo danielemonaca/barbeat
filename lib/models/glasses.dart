@@ -1,12 +1,14 @@
+import 'package:barbeat/models/artworks.dart';
+
 class GlassWithArtWork {
   String name;
-  String? artwork;
+  ArtWork? artwork;
 
-  GlassWithArtWork({required this.name, this.artwork});
+  GlassWithArtWork({required this.name, this.artwork = ArtWork.CocktailGlass});
 }
 
 List<GlassWithArtWork> glassesWithArtWork = [
-  GlassWithArtWork(name: 'Highball Glass'),
+  GlassWithArtWork(name: 'Highball Glass', artwork: ArtWork.NormalGlass),
   GlassWithArtWork(name: 'Cocktail glass'),
   GlassWithArtWork(name: 'Old-fashioned glass'),
   GlassWithArtWork(name: 'Whiskey Glass'),
@@ -35,7 +37,7 @@ List<GlassWithArtWork> glassesWithArtWork = [
   GlassWithArtWork(name: 'Parfait glass'),
   GlassWithArtWork(name: 'Mason jar'),
   GlassWithArtWork(name: 'Margarita glass'),
-  GlassWithArtWork(name: 'Martini Glass'),
+  GlassWithArtWork(name: 'Martini Glass', artwork: ArtWork.CocktailGlass),
   GlassWithArtWork(name: 'Balloon Glass'),
   GlassWithArtWork(name: 'Coupe Glass'),
 ];
