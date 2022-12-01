@@ -9,6 +9,10 @@ class GarnishWithMachineInput {
   GarnishWithMachineInput(this.garnish, this.stateMachineInput, {this.color});
 }
 
+const limeColor = '#C0F000';
+const lemonColor = '#FFE600';
+const orangeColor = '#FF7E25';
+
 List<GarnishWithMachineInput> glassesWithArtWork = [
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.cherry,
@@ -17,6 +21,7 @@ List<GarnishWithMachineInput> glassesWithArtWork = [
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.freshLimeJuice,
     StateMachineInput.Orange,
+    color: limeColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.apple,
@@ -33,6 +38,7 @@ List<GarnishWithMachineInput> glassesWithArtWork = [
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.orangePeel,
     StateMachineInput.Peel,
+    color: orangeColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.freshMint,
@@ -57,14 +63,17 @@ List<GarnishWithMachineInput> glassesWithArtWork = [
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.lemon,
     StateMachineInput.Orange,
+    color: lemonColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.lime,
     StateMachineInput.Orange,
+    color: limeColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.lemonSlice,
     StateMachineInput.Orange,
+    color: lemonColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.mint,
@@ -77,10 +86,12 @@ List<GarnishWithMachineInput> glassesWithArtWork = [
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.limePeel,
     StateMachineInput.Peel,
+    color: limeColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.lemonPeel,
     StateMachineInput.Peel,
+    color: lemonColor,
   ),
   GarnishWithMachineInput(
     IngredientsRequiringGarnish.orange,

@@ -1,5 +1,6 @@
 import 'package:barbeat/cig/CIG.dart';
 import 'package:barbeat/common_libs.dart';
+import 'package:barbeat/models/garnishes.dart';
 
 class PageData {
   Widget cocktailImage;
@@ -17,7 +18,10 @@ class PageData {
 List<PageData> introData = [
   PageData(
       cocktailImage: CIG(
-          const ['lime', 'ice', 'Lime Peel'], '#DF4141', 'Martini Glass', true),
+          ['lemon', 'ice', IngredientsRequiringGarnish.lemonPeel.name],
+          '#DF4141',
+          'Martini Glass',
+          true),
       text: 'Find any Cocktail you want',
       highlightedText: 'Cocktail',
       description:
@@ -31,7 +35,10 @@ List<PageData> introData = [
           'In BarBeat, you can search cocktails by the ingredients! Just open the fridge and insert what you have in the app, BarBeat will think about the rest!'),
   PageData(
       cocktailImage: CIG(
-          const ['lime', 'ice', 'Lime Peel'], '#DF4141', 'Martini Glass', true),
+          ['orange', 'ice', IngredientsRequiringGarnish.orangePeel.name],
+          '#DF4141',
+          'Martini Glass',
+          true),
       text: 'Find the Perfect Cocktail For You',
       highlightedText: 'Cocktail',
       description:

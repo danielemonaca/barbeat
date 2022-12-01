@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:barbeat/cig/helpers/rive_custom_helper.dart';
 import 'package:barbeat/cig/helpers/string_color_to_hex.dart';
 import 'package:barbeat/common_libs.dart';
 import 'package:barbeat/cig/helpers/garnishes_to_state_machine_inputs.dart';
@@ -38,45 +39,33 @@ class _CIG extends State<CIG> {
     final ctrl = StateMachineController.fromArtboard(art, _animationStateName)
         as StateMachineController;
 
-    art.addController(ctrl);
-    // ignore: avoid_print
-    print("------------------------");
+    final riveHelper = RiveCustomHelper.fromArtboard(art, _animationStateName);
+
+    // 1. Activate inputs
     for (var garnishInput in widget.garnishesInputs) {
-      print("Ingredient: ${garnishInput.stateMachineInput.name}");
-      final input =
-          ctrl.findInput<bool>(garnishInput.stateMachineInput.name) as SMIBool;
-      input.value = true;
+      riveHelper.setBoolInput(garnishInput.stateMachineInput.name, true);
+    }
 
-      // Change color of liquid in "liquid" inside the animation
-      final liquidFromRive = ctrl.artboard?.children.firstWhere(
-          (element) => element.name == 'CocktailGlass',
-          orElse: () => throw Exception('Liquid not found in animation'));
+    // 2. Set color of liquid
+    if (widget.colorLiquid != null) {
+      riveHelper.setColorLiquid(widget.colorLiquid!);
+    }
 
-      final shape = liquidFromRive
-          ?.artboard?.children.first.artboard!.children.first as Node;
-
-      // print('Liquid: ${shape.children}');
-
-      for (var element in shape.children) {
-        if (element is Node) {
-          if (element.name == 'Cocktail') {
-            final liquidShape = element.children.first as Shape;
-            final liquidFill =
-                liquidShape.fills.first.children[0] as SolidColor;
-            if (widget.colorLiquid != null) {
-              liquidFill.colorValue = Color(stringColorToHex(widget.colorLiquid!)).value;
-            }
-
-            print('Liquid: ${liquidFill.colorValue}');
-          }
+    // 3. Set color of garnishes
+    for (var garnishInput in widget.garnishesInputs) {
+      if (garnishInput.color != null) {
+        /// We check for Peel because it doen't have a "fill" color, but only changes the path color
+        if (garnishInput.stateMachineInput.name ==
+            StateMachineInput.Peel.name) {
+          riveHelper.setColorPeel(garnishInput.color!);
+        } else {
+          /// For this case, we want the color of the Node to be the same as the state machine input
+          riveHelper.setNodeColor(garnishInput.stateMachineInput.name,
+              garnishInput.stateMachineInput.name, garnishInput.color!);
         }
       }
-
-      print(
-          " test fills First ${(ctrl.artboard?.fills.first.children[0] as SolidColor).colorValue}");
     }
-    // ignore: avoid_print
-    print("------------------------");
+
     setState(() {
       _controller = ctrl;
     });
