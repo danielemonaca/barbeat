@@ -35,8 +35,9 @@ class HeadlineSearch extends StatelessWidget {
                   onTap: action,
                   child: SearchField(
                     title: searchCaption,
-                    action: () => null,
+                    action: action,
                     width: size.width,
+                    enabled: false,
                   ),
                 ),
               ),

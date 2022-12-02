@@ -109,6 +109,8 @@ flutter:
     - assets/homeCards/heart.svg
     - assets/dummyPhotos/mojito.png
     - assets/dummyPhotos/redCocktail.png
+    - assets/searchByIngs/rectangle.svg
+    - assets/common/backIcon.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

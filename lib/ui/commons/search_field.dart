@@ -5,12 +5,14 @@ class SearchField extends StatefulWidget {
   final String title;
   final double width;
   final Function() action;
+  final bool enabled;
 
   const SearchField(
       {super.key,
       required this.title,
       required this.action,
-      required this.width});
+      required this.width,
+      required this.enabled});
 
   static const padding = EdgeInsets.symmetric(horizontal: 25, vertical: 20);
 
@@ -38,6 +40,7 @@ class _SearchFieldState extends State<SearchField> {
         ],
       ),
       child: TextField(
+        enabled: widget.enabled,
         controller: controller,
         onChanged: (e) => {
           setState(
