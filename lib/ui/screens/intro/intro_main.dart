@@ -1,4 +1,4 @@
-import 'package:barbeat/ui/buttons/red_button.dart';
+import 'package:barbeat/ui/commons/buttons/red_button.dart';
 import 'package:barbeat/ui/screens/intro/intro_background.dart';
 import 'package:barbeat/ui/screens/intro/intro_page.dart';
 import 'package:flutter/material.dart';
