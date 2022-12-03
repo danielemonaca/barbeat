@@ -111,6 +111,7 @@ flutter:
     - assets/dummyPhotos/redCocktail.png
     - assets/searchByIngs/rectangle.svg
     - assets/common/backIcon.svg
+    - assets/searchByIngs/noIngsPic.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
