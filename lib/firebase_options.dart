@@ -63,8 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '669548527732',
     projectId: 'barbeat-1',
     storageBucket: 'barbeat-1.appspot.com',
-    iosClientId:
-        '669548527732-fcsvm2rd691h0dteikdbih3io565c6r0.apps.googleusercontent.com',
+    iosClientId: '669548527732-fcsvm2rd691h0dteikdbih3io565c6r0.apps.googleusercontent.com',
     iosBundleId: 'com.example.barbeat',
   );
 }

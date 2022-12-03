@@ -1,3 +1,4 @@
+import 'package:barbeat/ui/commons/from_database_widgets/get_cocktail.dart';
 import 'package:barbeat/ui/screens/home/discover_new_ones.dart';
 import 'package:barbeat/ui/screens/home/headline_search.dart';
 import 'package:barbeat/ui/screens/home/home_topbar.dart';
@@ -16,6 +17,7 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             HeadlineSearch(action: () => null),
+            const GetCocktail('Ouzo'),
             const DiscoverNewOnes(),
             const MostPopular(),
           ],
