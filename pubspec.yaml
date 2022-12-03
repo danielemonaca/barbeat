@@ -110,7 +110,6 @@ flutter:
     - assets/homeCards/heart.svg
     - assets/dummyPhotos/mojito.png
     - assets/dummyPhotos/redCocktail.png
-    - assets/searchByIngs/rectangle.svg
     - assets/common/backIcon.svg
     - assets/searchByIngs/noIngsPic.png
     - assets/common/plusIcon.svg

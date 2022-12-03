@@ -19,6 +19,7 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
       body: SlidingUpPanel(
         body: Stack(

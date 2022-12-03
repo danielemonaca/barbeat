@@ -51,7 +51,7 @@ class Background extends StatelessWidget {
   }
 
   Widget _buildWhiteBottomPart(Size size) {
-    const whiteBottomPart = 'assets/searchByIngs/rectangle.svg';
+    const whiteBottomPart = 'assets/introImages/white_bottom_part.svg';
     return Align(
       // bottom: -4,
       // top: 5,

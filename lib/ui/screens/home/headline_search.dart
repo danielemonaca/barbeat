@@ -31,14 +31,11 @@ class HeadlineSearch extends StatelessWidget {
               ),
               Padding(
                 padding: padding,
-                child: GestureDetector(
-                  onTap: action,
-                  child: SearchField(
-                    title: searchCaption,
-                    action: action,
-                    width: size.width,
-                    enabled: false,
-                  ),
+                child: SearchField(
+                  title: searchCaption,
+                  action: action,
+                  width: size.width,
+                  enabled: true,
                 ),
               ),
             ],
