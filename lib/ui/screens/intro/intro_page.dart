@@ -2,7 +2,7 @@ import 'package:barbeat/ui/commons/text_with_highlight.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
-  final String cocktailImage;
+  final Widget cocktailImage;
   final String text;
   final String highlightedText;
   final String description;
@@ -22,16 +22,11 @@ class IntroPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             // This section will change when we have RIVE animation
             width: 350,
             height: 350,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(cocktailImage),
-                fit: BoxFit.contain,
-              ),
-            ),
+            child: cocktailImage,
           ),
           SizedBox(
             width: size.width * 0.8,
