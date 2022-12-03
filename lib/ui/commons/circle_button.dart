@@ -5,11 +5,13 @@ class CircleButton extends StatelessWidget {
   final Function() action;
   final String photoPath;
   final int color;
+  final double size;
   const CircleButton(
       {super.key,
       required this.action,
       required this.color,
-      required this.photoPath});
+      required this.photoPath,
+      required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,7 @@ class CircleButton extends StatelessWidget {
       onPressed: action,
       color: Color(color),
       shape: const CircleBorder(),
+      height: size,
       child: SvgPicture.asset(photoPath),
     );
   }

@@ -30,6 +30,7 @@ class Background extends StatelessWidget {
                 action: navigateToHome,
                 color: 0xFFFFFFFF,
                 photoPath: 'assets/common/backIcon.svg',
+                size: 40,
               ),
               Padding(
                 padding: EdgeInsets.all(size.width * 0.07),
