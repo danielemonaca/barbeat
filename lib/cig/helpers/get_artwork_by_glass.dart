@@ -1,5 +1,5 @@
 import 'package:barbeat/models/artworks.dart';
-import 'package:barbeat/models/glassesWithArtwork.dart';
+import 'package:barbeat/models/glasses_with_artwork.dart';
 
 ArtWork getArtWorkByGlass(String glass) {
   for (var item in glassesWithArtWork) {

@@ -1,4 +1,3 @@
-import 'package:barbeat/cig/helpers/string_color_to_hex.dart';
 import 'package:barbeat/helpers/replace_or_with_slash.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -40,9 +39,9 @@ void main() {
     expect(result, expected);
   });
 
-  test('should transform the "Milk Or Coffee" into Milk / Coffee', () {
+  test('should transform the "MilkOrCoffee" into Milk / Coffee', () {
     // Setup
-    const String input = 'Milk Or Coffee';
+    const String input = 'MilkOrCoffee';
     const String expected = 'Milk / Coffee';
 
     // Test

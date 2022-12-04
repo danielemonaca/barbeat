@@ -3,7 +3,6 @@ import 'package:barbeat/models/glass.dart';
 import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/models/instruction.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 
 class Drink extends Equatable {
   final int cocktailId;
@@ -46,5 +45,4 @@ class Drink extends Equatable {
             json['ingredients'].map((x) => Ingredient.fromJson(x))),
         tags: List<String>.from(json['tags'].map((x) => x)),
       );
-
 }

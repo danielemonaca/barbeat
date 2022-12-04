@@ -18,7 +18,7 @@ void main() async {
 
 // ignore: use_key_in_widget_constructors
 class MyApp extends StatelessWidget {
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
