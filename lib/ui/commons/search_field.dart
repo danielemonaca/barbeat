@@ -4,15 +4,19 @@ import '../../globals/theme/app_themes.dart';
 class SearchField extends StatefulWidget {
   final String title;
   final double width;
-  final Function() action;
+  final Function action;
   final bool enabled;
+  final FocusNode focusNode;
+  final TextEditingController controller;
 
   const SearchField(
       {super.key,
       required this.title,
       required this.action,
       required this.width,
-      required this.enabled});
+      required this.enabled,
+      required this.focusNode,
+      required this.controller});
 
   static const padding = EdgeInsets.symmetric(horizontal: 25, vertical: 20);
 
@@ -21,7 +25,6 @@ class SearchField extends StatefulWidget {
 }
 
 class _SearchFieldState extends State<SearchField> {
-  final controller = TextEditingController();
   String input = '';
   static const grey = HomeScreenColors.searchBarText;
   static const shadow = SearchByIngredientsColors.greyShadow;
@@ -40,8 +43,9 @@ class _SearchFieldState extends State<SearchField> {
         ],
       ),
       child: TextField(
+        focusNode: widget.focusNode,
         enabled: widget.enabled,
-        controller: controller,
+        controller: widget.controller,
         onChanged: (e) => {
           setState(
             () {
@@ -73,7 +77,7 @@ class _SearchFieldState extends State<SearchField> {
                     color: grey,
                     onPressed: () => setState(
                       () {
-                        controller.clear();
+                        widget.controller.clear();
                         input = '';
                       },
                     ),

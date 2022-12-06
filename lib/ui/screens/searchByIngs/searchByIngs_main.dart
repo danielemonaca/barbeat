@@ -12,6 +12,8 @@ class SearchByIngredients extends StatefulWidget {
 }
 
 class _SearchByIngredientsState extends State<SearchByIngredients> {
+  final panelController = PanelController();
+
   @override
   Widget build(BuildContext context) {
     const backgroundColor = Color(0xA6F54749);
@@ -22,13 +24,17 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
       resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
       body: SlidingUpPanel(
+        controller: panelController,
         body: Stack(
           children: [
             const Background(),
             NoIngsPic(size: size), // TODO: render conditionally***
           ],
         ),
-        panelBuilder: (controller) => PanelWidget(controller: controller),
+        panelBuilder: (controller) => PanelWidget(
+          controller: controller,
+          panelController: panelController,
+        ),
         color: panelColor,
         borderRadius: const BorderRadius.vertical(top: Radius.circular(18)),
         maxHeight: size.height * 0.77,
