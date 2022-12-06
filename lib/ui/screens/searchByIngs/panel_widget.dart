@@ -17,6 +17,7 @@ class PanelWidget extends StatefulWidget {
 class _PanelWidgetState extends State<PanelWidget> {
   late FocusNode focusNode;
   late TextEditingController textController;
+  bool panelOpen = false;
 
   @override
   void initState() {
@@ -42,15 +43,7 @@ class _PanelWidgetState extends State<PanelWidget> {
                 behavior: HitTestBehavior.opaque,
                 onTap: openPanel,
                 child: IgnorePointer(
-                  child: SearchField(
-                    controller: textController,
-                    focusNode: focusNode,
-                    title: 'Ingredient name',
-                    action: () => null,
-                    width: 280,
-                    enabled: true,
-                  ),
-                ),
+                    ignoring: !panelOpen, child: _buildSearchBar()),
               ),
               CircleButton(
                 action: () => null,
@@ -76,6 +69,20 @@ class _PanelWidgetState extends State<PanelWidget> {
   void openPanel() {
     widget.panelController.open();
     focusNode.requestFocus();
+    setState(() {
+      panelOpen = true;
+    });
+  }
+
+  Widget _buildSearchBar() {
+    return SearchField(
+      controller: textController,
+      focusNode: focusNode,
+      title: 'Ingredient name',
+      action: () => null,
+      width: 280,
+      enabled: true,
+    );
   }
 
   Widget _buildDragHandle() {
