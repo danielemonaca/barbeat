@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:barbeat/ui/commons/circle_button.dart';
 import 'package:barbeat/ui/commons/search_field.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class PanelWidget extends StatefulWidget {
 
 class _PanelWidgetState extends State<PanelWidget> {
   late FocusNode focusNode;
+  late StreamSubscription<bool> subscription;
   late TextEditingController textController;
   bool panelOpen = false;
 
@@ -24,9 +27,24 @@ class _PanelWidgetState extends State<PanelWidget> {
     super.initState();
     textController = TextEditingController();
     focusNode = FocusNode();
-    focusNode.addListener(() {
-      // print('has focus ${focusNode.hasFocus}');
-    });
+    subscription = KeyboardVisibilityController().onChange.listen(
+      (isVisible) {
+        if (!isVisible) {
+          focusNode.unfocus();
+          setState(() {
+            panelOpen = false;
+          });
+        }
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    focusNode.dispose();
+    subscription.cancel();
+
+    super.dispose();
   }
 
   @override
@@ -43,7 +61,9 @@ class _PanelWidgetState extends State<PanelWidget> {
                 behavior: HitTestBehavior.opaque,
                 onTap: openPanel,
                 child: IgnorePointer(
-                    ignoring: !panelOpen, child: _buildSearchBar()),
+                  ignoring: !panelOpen,
+                  child: _buildSearchBar(),
+                ),
               ),
               CircleButton(
                 action: () => null,
@@ -54,17 +74,9 @@ class _PanelWidgetState extends State<PanelWidget> {
             ],
           ),
         ),
-        KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
-          return Text(
-            'The keyboard is: ${isKeyboardVisible ? 'VISIBLE' : 'NOT VISIBLE'}',
-          );
-        }),
       ],
     );
   }
-
-  void togglePanel() =>
-      widget.panelController.isPanelOpen ? openPanel() : focusNode.unfocus();
 
   void openPanel() {
     widget.panelController.open();
