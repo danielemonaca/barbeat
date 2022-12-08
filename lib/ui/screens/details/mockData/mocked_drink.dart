@@ -23,11 +23,11 @@ Drink mockedDrink = const Drink(
   ],
   ingredients: [
     IngredientForDrink(
-      ingredientName: 'Triple sec',
+      ingredientName: 'Ouzo',
       measure: '1/2 oz ',
     ),
     IngredientForDrink(
-      ingredientName: 'Lime juice',
+      ingredientName: 'Champagne',
       measure: '1 oz ',
     ),
   ],

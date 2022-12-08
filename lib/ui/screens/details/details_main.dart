@@ -1,16 +1,37 @@
 import 'package:barbeat/cig/CIG.dart';
 import 'package:barbeat/common_libs.dart';
 import 'package:barbeat/helpers/color_utility.dart';
+import 'package:barbeat/helpers/get_drink_abv_from_ingredients.dart';
 import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:barbeat/models/drink.dart';
 import 'package:barbeat/models/garnishes.dart';
+import 'package:barbeat/models/ingredient.dart';
+import 'package:barbeat/services/ingredient_service.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:barbeat/ui/screens/details/abv_chip.dart';
 
-class CocktailDetailsPage extends StatelessWidget {
+class CocktailDetailsPage extends StatefulWidget {
   final Drink drink;
-  final Color _colorForArchBackground = const Color(0xFFFAF8F2);
+
   const CocktailDetailsPage({super.key, required this.drink});
+
+  @override
+  State<CocktailDetailsPage> createState() => _CocktailDetailsPageState();
+}
+
+class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
+  final Color _colorForArchBackground = const Color(0xFFFAF8F2);
+  late List<Ingredient> _ingredients;
+
+  @override
+  void initState() {
+    super.initState();
+    _ingredients = []; // a bit of a fall back in case we can't get the ingredients
+    IngredientService.getIngredientsFromNames(
+            widget.drink.ingredients?.map((e) => e.ingredientName).toList() ??
+                [])
+        .then((value) => setState(() => _ingredients = value));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +48,8 @@ class CocktailDetailsPage extends StatelessWidget {
                 Container(
                   height: 600,
                   color: lightenColor(
-                      Color(stringColorToHex(drink.color ?? '#FF0000')), 0.2),
+                      Color(stringColorToHex(widget.drink.color ?? '#FF0000')),
+                      0.2),
                 ),
                 buildWhiteBottomPart(size,
                     height: 0.60, color: _colorForArchBackground),
@@ -45,7 +67,7 @@ class CocktailDetailsPage extends StatelessWidget {
                           'lemon',
                           'ice',
                           IngredientsRequiringGarnish.lemonPeel.name
-                        ], drink.color, 'Martini Glass', true),
+                        ], widget.drink.color, 'Martini Glass', true),
                       ),
                       const SizedBox(height: 20),
                       const Text(
@@ -58,7 +80,7 @@ class CocktailDetailsPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      const AbvChip(abv: 0),
+                      AbvChip(abv: getDrinkAbvFromIngredients(_ingredients)),
                     ],
                   ),
                 )
