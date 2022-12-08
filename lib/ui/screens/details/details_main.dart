@@ -21,12 +21,14 @@ class CocktailDetailsPage extends StatefulWidget {
 
 class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   final Color _colorForArchBackground = const Color(0xFFFAF8F2);
+  final String _fallbackColor = '#FF0000';
+  final String _fallbackGlass = 'Cocktail glass';
   late List<Ingredient> _ingredients;
 
   @override
   void initState() {
     super.initState();
-    _ingredients = []; // a bit of a fall back in case we can't get the ingredients
+    _ingredients = []; // a fallback in case we can't get the ingredients
     IngredientService.getIngredientsFromNames(
             widget.drink.ingredients?.map((e) => e.ingredientName).toList() ??
                 [])
@@ -48,7 +50,8 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                 Container(
                   height: 600,
                   color: lightenColor(
-                      Color(stringColorToHex(widget.drink.color ?? '#FF0000')),
+                      Color(stringColorToHex(
+                          widget.drink.color ?? _fallbackColor)),
                       0.2),
                 ),
                 buildWhiteBottomPart(size,
@@ -67,12 +70,13 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                           'lemon',
                           'ice',
                           IngredientsRequiringGarnish.lemonPeel.name
-                        ], widget.drink.color, 'Martini Glass', true),
+                        ], widget.drink.color,
+                            widget.drink.glass?.name ?? _fallbackGlass, true),
                       ),
                       const SizedBox(height: 20),
-                      const Text(
-                        'Mojito',
-                        style: TextStyle(
+                      Text(
+                        widget.drink.name,
+                        style: const TextStyle(
                           fontSize: 28,
                           fontFamily: 'Metropolis',
                           fontWeight: FontWeight.bold,
