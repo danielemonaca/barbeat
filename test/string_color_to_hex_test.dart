@@ -1,4 +1,4 @@
-import 'package:barbeat/cig/helpers/string_color_to_hex.dart';
+import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

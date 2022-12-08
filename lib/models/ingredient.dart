@@ -34,7 +34,7 @@ class Ingredient extends Equatable {
         name: json['name'],
         type: json['type'],
         description: json['description'],
-        abv: json['abv'],
+        abv: json['abv'].floor(),
         alcohol: json['alcohol'],
         ingredientId: json['ingredientId'],
         image: json['image'],
