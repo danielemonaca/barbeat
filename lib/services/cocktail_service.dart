@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:barbeat/models/drink.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/ingredient.dart';
 
 const String _cocktailsCollection = 'cocktails';
 
