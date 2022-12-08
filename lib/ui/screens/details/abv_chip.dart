@@ -2,6 +2,7 @@ import 'package:barbeat/common_libs.dart';
 
 class AbvChip extends StatelessWidget {
   final int abv;
+  final Color shadowColor = const Color.fromARGB(46, 219, 218, 212);
 
   const AbvChip({super.key, required this.abv});
 
@@ -16,6 +17,13 @@ class AbvChip extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            blurRadius: 4,
+            color: shadowColor,
+            offset: const Offset(0, 5),
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
