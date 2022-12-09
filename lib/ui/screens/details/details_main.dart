@@ -56,9 +56,9 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                       0.2),
                 ),
                 buildWhiteBottomPart(size,
-                    height: 0.60, color: _colorForArchBackground),
+                    height: 0.65, color: _colorForArchBackground),
                 Positioned(
-                  top: 0,
+                  top: -20,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,7 +84,7 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                         width: size.width * 0.8,
                         child: Container(
                             alignment: Alignment.centerLeft,
-                            child: sectionTitleText('Ingredients')),
+                            child: sectionTitleText('Ingredients', size)),
                       ),
 
                       ScrollableListOfIngredients(
@@ -97,8 +97,28 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
               ],
             ),
             Container(
-              color: Colors.blue,
+              color: _colorForArchBackground,
+              width: size.width,
               constraints: const BoxConstraints(minHeight: 200),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  sectionTitleText('Glass recommended', size),
+                  const SizedBox(height: 30),
+                  sectionText(widget.drink.glass?.name ?? _fallbackGlass, size),
+                  const SizedBox(height: 50),
+                  sectionTitleText('Instructions', size),
+                  const SizedBox(height: 30),
+                  //get instructions where instruction.language is english
+                  sectionText(
+                      widget.drink.instructions
+                              ?.firstWhere(
+                                  (instruction) => instruction.language == 'en')
+                              .text ??
+                          'No instructions found',
+                      size),
+                ],
+              ),
             ),
           ],
         ),
@@ -119,15 +139,40 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   }
 
 // it should be shown on the left and not centered
-  Widget sectionTitleText(String title) {
-    return Text(
-      title,
-      textAlign: TextAlign.left,
-      style: const TextStyle(
-        fontSize: 20,
-        fontFamily: 'Metropolis',
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
+  Widget sectionTitleText(String title, Size size) {
+    return SizedBox(
+      width: size.width * 0.8,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          textAlign: TextAlign.left,
+          style: const TextStyle(
+            fontSize: 20,
+            fontFamily: 'Metropolis',
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget sectionText(String text, Size size) {
+    return SizedBox(
+      width: size.width * 0.8,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          text.replaceAll('.', '.\n\n'),
+          textAlign: TextAlign.left,
+          style: const TextStyle(
+            fontSize: 16,
+            fontFamily: 'Metropolis',
+            fontWeight: FontWeight.normal,
+            height: 1.5,
+          ),
+        ),
       ),
     );
   }
