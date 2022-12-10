@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:barbeat/cig/helpers/string_color_to_hex.dart';
+import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:rive/components.dart';
 import 'package:rive/rive.dart';
 

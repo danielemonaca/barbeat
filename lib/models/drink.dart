@@ -1,8 +1,8 @@
 import 'package:barbeat/models/cocktail_category.dart';
 import 'package:barbeat/models/glass.dart';
-import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/models/instruction.dart';
 import 'package:equatable/equatable.dart';
+import 'ingredient_for_drink.dart';
 
 class Drink extends Equatable {
   final int cocktailId;
@@ -10,8 +10,9 @@ class Drink extends Equatable {
   final Glass? glass;
   final CocktailCategory? category;
   final List<Instruction>? instructions;
-  final List<Ingredient>? ingredients;
+  final List<IngredientForDrink>? ingredients;
   final List<String>? tags;
+  final String? color;
 
   const Drink({
     required this.cocktailId,
@@ -21,6 +22,7 @@ class Drink extends Equatable {
     this.instructions,
     this.ingredients,
     this.tags,
+    this.color,
   });
 
   @override
@@ -32,6 +34,7 @@ class Drink extends Equatable {
         instructions,
         ingredients,
         tags,
+        color
       ];
 
   factory Drink.fromJson(Map<String, dynamic> json) => Drink(
@@ -41,8 +44,9 @@ class Drink extends Equatable {
         category: CocktailCategory.fromJson(json['category']),
         instructions: List<Instruction>.from(
             json['instructions'].map((x) => Instruction.fromJson(x))),
-        ingredients: List<Ingredient>.from(
-            json['ingredients'].map((x) => Ingredient.fromJson(x))),
+        ingredients: List<IngredientForDrink>.from(
+            json['ingredients'].map((x) => IngredientForDrink.fromJson(x))),
         tags: List<String>.from(json['tags'].map((x) => x)),
+        color: json['color'],
       );
 }
