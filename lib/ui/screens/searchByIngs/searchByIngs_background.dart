@@ -47,7 +47,7 @@ class Background extends StatelessWidget {
             ],
           ),
         ),
-        buildWhiteBottomPart(
+        buildWhiteBottomPartRegular(
           size,
           height: 0.9,
           color: colorForArchBackground,
