@@ -1,7 +1,7 @@
 import 'package:barbeat/globals/theme/app_themes.dart';
-import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../commons/white_bottom_part.dart';
 
 class IntroBackground extends StatelessWidget {
   const IntroBackground({super.key});

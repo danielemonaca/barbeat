@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CustomCard extends StatelessWidget {
   final String image;
   final String title;
-  final Function() action;
+  final Function action;
   const CustomCard(
       {super.key,
       required this.title,
@@ -20,7 +20,7 @@ class CustomCard extends StatelessWidget {
     return Align(
       alignment: Alignment.center,
       child: InkWell(
-        onTap: action,
+        onTap: action(),
         child: Container(
           width: size.width * 0.36,
           height: size.height * 0.19,
