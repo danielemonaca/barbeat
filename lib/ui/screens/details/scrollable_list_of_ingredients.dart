@@ -35,7 +35,7 @@ class ScrollableListOfIngredients extends StatelessWidget {
           itemBuilder: (context, index) {
             return ingredientItem(
                 ingredient: ingredients[index],
-                ingredientForDrink: ingredientsForDrink[0]);
+                ingredientForDrink: ingredientsForDrink[index]);
           },
         ),
       ),
