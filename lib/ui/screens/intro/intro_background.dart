@@ -1,7 +1,8 @@
 import 'package:barbeat/globals/theme/app_themes.dart';
-import 'package:barbeat/ui/commons/white_bottom_part.dart';
+// import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class IntroBackground extends StatelessWidget {
   const IntroBackground({super.key});
@@ -24,7 +25,7 @@ class IntroBackground extends StatelessWidget {
           ),
         ),
         _buildWhiteOverlay(),
-        buildWhiteBottomPart(size),
+        _buildWhiteBottomPart(size),
         Container(
           alignment: const Alignment(0, 1),
           child: Column(
@@ -62,6 +63,29 @@ class IntroBackground extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       color: overlayColor,
+    );
+  }
+
+  Widget _buildWhiteBottomPart(Size size, {double? height, Color? color}) {
+    const whiteBottomPart = 'assets/introImages/white_bottom_part.svg';
+    const shadowWhiteBottomPartColor = Color(0xFFC7C5C1);
+    return Positioned(
+      bottom: -40,
+      child: SizedBox(
+        width: size.width,
+        height: size.height * (height ?? 0.65),
+        child: SimpleShadow(
+          opacity: 0.40,
+          color: shadowWhiteBottomPartColor,
+          offset: const Offset(-10, -10),
+          sigma: 7,
+          child: SvgPicture.asset(
+            whiteBottomPart,
+            fit: BoxFit.cover,
+            color: color ?? Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }
