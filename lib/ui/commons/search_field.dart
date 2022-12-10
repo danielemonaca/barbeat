@@ -59,8 +59,9 @@ class _SearchFieldState extends State<SearchField> {
           filled: true,
           hintText: widget.title,
           hintStyle: const TextStyle(
-            fontSize: 17,
+            fontSize: 18,
             color: grey,
+            fontWeight: FontWeight.w500,
           ),
           suffixIcon: input.isEmpty
               ? const Align(

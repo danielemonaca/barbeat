@@ -7,7 +7,6 @@ class DiscoverNewOnes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final data = gridData;
     Size size = MediaQuery.of(context).size;
     const padding = EdgeInsets.only(top: 25);
     const black = Colors.black;

@@ -33,12 +33,13 @@ class Background extends StatelessWidget {
                 size: 40,
               ),
               Padding(
-                padding: EdgeInsets.all(size.width * 0.07),
+                padding: EdgeInsets.all(size.width * 0.05),
                 child: const Text(
-                  'Search by Ingredients',
+                  'Search by ingredients',
                   style: TextStyle(
                     color: titleColor,
                     fontSize: 20,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
@@ -53,8 +54,6 @@ class Background extends StatelessWidget {
   Widget _buildWhiteBottomPart(Size size) {
     const whiteBottomPart = 'assets/introImages/white_bottom_part.svg';
     return Align(
-      // bottom: -4,
-      // top: 5,
       alignment: Alignment.bottomCenter,
       child: SizedBox(
         width: size.width,

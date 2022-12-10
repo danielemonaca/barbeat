@@ -7,6 +7,7 @@ class NoIngsPic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const pic = 'assets/searchByIngs/noIngsPic.png';
+    const grey = Color(0xFF686868);
     return Align(
       alignment: Alignment.center,
       child: Padding(
@@ -16,7 +17,17 @@ class NoIngsPic extends StatelessWidget {
           height: size.height * 0.4,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Image.asset(pic), const Text('No Ingredients selected')],
+            children: [
+              Image.asset(pic),
+              const Text(
+                'No Ingredients selected',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: grey,
+                  fontWeight: FontWeight.w400,
+                ),
+              )
+            ],
           ),
         ),
       ),

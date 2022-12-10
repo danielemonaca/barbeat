@@ -20,6 +20,7 @@ class _PanelWidgetState extends State<PanelWidget> {
   late FocusNode focusNode;
   late StreamSubscription<bool> subscription;
   late TextEditingController textController;
+  final greyDragHandle = const Color(0xFFD9D9D9);
   bool panelOpen = false;
 
   @override
@@ -105,7 +106,7 @@ class _PanelWidgetState extends State<PanelWidget> {
           width: 50,
           height: 5,
           decoration: BoxDecoration(
-            color: const Color(0xFFD9D9D9),
+            color: greyDragHandle,
             borderRadius: BorderRadius.circular(12),
           ),
         ),
