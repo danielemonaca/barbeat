@@ -6,7 +6,6 @@ import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:barbeat/models/drink.dart';
 import 'package:barbeat/models/garnishes.dart';
 import 'package:barbeat/models/glass.dart';
-import 'package:barbeat/models/glass_test.dart';
 import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/services/ingredient_service.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
@@ -89,7 +88,6 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                             alignment: Alignment.centerLeft,
                             child: sectionTitleText('Ingredients', size)),
                       ),
-
                       ScrollableListOfIngredients(
                         ingredients: _ingredients,
                         ingredientsForDrink: widget.drink.ingredients ?? [],

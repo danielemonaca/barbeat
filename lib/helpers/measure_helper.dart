@@ -5,7 +5,6 @@ class MeasureHelper {
 
   MeasureHelper(this.unit);
 
-
   /*
     * Given a measure in the oz format (e.g. 1/2 oz), returns the measure in the ml format rounded (e.g. 15 ml)
     * @param measure the measure in the oz format

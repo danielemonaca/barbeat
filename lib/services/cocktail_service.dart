@@ -6,7 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 const String _cocktailsCollection = 'cocktails';
 
 class CocktailService {
-  
   static Future<Drink?> getCocktailFromName(String cocktailName) async {
     final querySnapshot = await FirebaseFirestore.instance
         .collection(_cocktailsCollection)

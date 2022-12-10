@@ -56,12 +56,6 @@ class IngredientService {
     return removeDuplicatesFromIngredients(ingredients);
   }
 
-  static void printPrettifyIngredients(List<Ingredient> ingredients) {
-    for (var ingredient in ingredients) {
-      print('Ingredient name: ${ingredient.name}');
-    }
-  }
-
   static List<Ingredient> removeDuplicatesFromIngredients(
       List<Ingredient> ingredients) {
     final ingredientNamesSet = <String>{};

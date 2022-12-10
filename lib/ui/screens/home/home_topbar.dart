@@ -41,8 +41,7 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
               color: iconColor,
               size: 40,
             ),
-            onPressed: () {
-            },
+            onPressed: () {},
           ),
         )
       ],
