@@ -5,6 +5,8 @@ import 'package:barbeat/helpers/get_drink_abv_from_ingredients.dart';
 import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:barbeat/models/drink.dart';
 import 'package:barbeat/models/garnishes.dart';
+import 'package:barbeat/models/glass.dart';
+import 'package:barbeat/models/glass_test.dart';
 import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/services/ingredient_service.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
@@ -25,6 +27,7 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   final String _fallbackColor = '#FF0000';
   final String _fallbackGlass = 'Cocktail glass';
   late List<Ingredient> _ingredients;
+  late final Glass _glass;
 
   @override
   void initState() {
@@ -34,6 +37,8 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
             widget.drink.ingredients?.map((e) => e.ingredientName).toList() ??
                 [])
         .then((value) => setState(() => _ingredients = value));
+
+    _glass = widget.drink.glass ?? Glass.highballGlass;
   }
 
   @override
@@ -64,7 +69,6 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        // This section will change when we have RIVE animation
                         width: 320,
                         height: 320,
                         child: CIG([
@@ -79,7 +83,6 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                       const SizedBox(height: 10),
                       AbvChip(abv: getDrinkAbvFromIngredients(_ingredients)),
                       const SizedBox(height: 20),
-                      // position the seciton title text to the left side of the screen
                       SizedBox(
                         width: size.width * 0.8,
                         child: Container(
@@ -105,15 +108,15 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                   const SizedBox(height: 20),
                   sectionTitleText('Glass recommended', size),
                   const SizedBox(height: 30),
-                  sectionText(widget.drink.glass?.name ?? _fallbackGlass, size),
+                  sectionText(_glass.displayName, size),
                   const SizedBox(height: 50),
                   sectionTitleText('Instructions', size),
                   const SizedBox(height: 30),
-                  //get instructions where instruction.language is english
                   sectionText(
                       widget.drink.instructions
-                              ?.firstWhere(
-                                  (instruction) => instruction.language == 'en')
+                              ?.firstWhere((instruction) =>
+                                  instruction.language ==
+                                  'en') // to modify with language service when i18n is available
                               .text ??
                           'No instructions found',
                       size),
@@ -138,7 +141,6 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
     );
   }
 
-// it should be shown on the left and not centered
   Widget sectionTitleText(String title, Size size) {
     return SizedBox(
       width: size.width * 0.8,
@@ -164,7 +166,7 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
       child: Container(
         alignment: Alignment.centerLeft,
         child: Text(
-          text.replaceAll('.', '.\n\n'),
+          text.replaceAll('. ', '.\n\n'),
           textAlign: TextAlign.left,
           style: const TextStyle(
             fontSize: 16,

@@ -16,7 +16,6 @@ class ScrollableListOfIngredients extends StatelessWidget {
       required this.ingredients,
       required this.ingredientsForDrink});
 
-// Create an horizontally scrollable list of ingredients items
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
@@ -42,7 +41,6 @@ class ScrollableListOfIngredients extends StatelessWidget {
     );
   }
 
-// linear vertical gradient text color from black to white
   Widget gradientText(String text) {
     return ShaderMask(
       shaderCallback: (rect) {

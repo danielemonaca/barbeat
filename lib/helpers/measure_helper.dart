@@ -5,13 +5,6 @@ class MeasureHelper {
 
   MeasureHelper(this.unit);
 
-  /*
-    * Given the instance unit, returns the correct measure
-    * example: 
-    */
-  String getCorrectMeasure(String measure) {
-    //
-  }
 
   /*
     * Given a measure in the oz format (e.g. 1/2 oz), returns the measure in the ml format rounded (e.g. 15 ml)

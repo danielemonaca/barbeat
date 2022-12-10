@@ -78,7 +78,7 @@ class IngredientService {
 
   // get ingredients that have the name that starts with a string (search)
 
-  // NOT TESTED
+  // NOT TESTED YET
   static Future<List<Ingredient>> getIngredientsFromSearch(
       String search) async {
     final querySnapshot = await FirebaseFirestore.instance
@@ -99,6 +99,7 @@ class IngredientService {
   static Widget getIngredientImage(String firebaseStoragePath) {
     if (firebaseStoragePath.isEmpty || firebaseStoragePath == 'null') {
       return Image.asset(
+          // ignore: todo
           'assets/images/cocktail.png'); // TODO find a callback image
     }
     return Image.network(firebaseStoragePath);

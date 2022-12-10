@@ -6,7 +6,6 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(56);
 
-  // style variables
   static const iconColor = Colors.black;
   static const logoPadding = EdgeInsets.only(left: 15);
   static const iconPadding = EdgeInsets.only(right: 15);
@@ -43,7 +42,6 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
               size: 40,
             ),
             onPressed: () {
-              // action would go here
             },
           ),
         )

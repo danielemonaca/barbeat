@@ -1,3 +1,6 @@
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+
 enum Glass {
   highballglass,
   cocktailglass,
@@ -43,8 +46,10 @@ enum Glass {
   static Glass fromJson(String json) => Glass.values.byName(json);
 }
 
-extension GlassExtension on Glass {
-  String get name {
+extension GlassWithExtension on Glass {
+  String get name => describeEnum(this);
+
+  String get displayName {
     switch (this) {
       case Glass.highballglass:
         return 'Highball glass';
