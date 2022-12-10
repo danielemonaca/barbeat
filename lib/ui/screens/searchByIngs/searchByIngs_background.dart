@@ -1,7 +1,7 @@
 import 'package:barbeat/ui/commons/circle_button.dart';
+import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:barbeat/ui/screens/home/home_main.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Background extends StatelessWidget {
   const Background({super.key});
@@ -10,6 +10,7 @@ class Background extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     const titleColor = Color(0xFFFFFFFF);
+    const Color colorForArchBackground = Color(0xFFFAF8F2);
     void navigateToHome() {
       Navigator.push(
         context,
@@ -46,23 +47,12 @@ class Background extends StatelessWidget {
             ],
           ),
         ),
-        _buildWhiteBottomPart(size),
-      ],
-    );
-  }
-
-  Widget _buildWhiteBottomPart(Size size) {
-    const whiteBottomPart = 'assets/introImages/white_bottom_part.svg';
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: SizedBox(
-        width: size.width,
-        height: size.height * 0.90,
-        child: SvgPicture.asset(
-          whiteBottomPart,
-          fit: BoxFit.cover,
+        buildWhiteBottomPart(
+          size,
+          height: 0.9,
+          color: colorForArchBackground,
         ),
-      ),
+      ],
     );
   }
 }

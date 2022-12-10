@@ -16,7 +16,7 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0xA6F54749);
+    const backgroundColor = Color(0xFFFF9697);
     const panelColor = Color(0xFFF1EFE8);
     Size size = MediaQuery.of(context).size;
 
