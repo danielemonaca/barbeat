@@ -10,6 +10,7 @@ import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/services/ingredient_service.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:barbeat/ui/screens/details/abv_chip.dart';
+import 'package:barbeat/ui/screens/details/back-to-top-btn.dart';
 import 'package:barbeat/ui/screens/details/scrollable_list_of_ingredients.dart';
 
 class CocktailDetailsPage extends StatefulWidget {
@@ -22,6 +23,8 @@ class CocktailDetailsPage extends StatefulWidget {
 }
 
 class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
+  ScrollController scrollController = ScrollController();
+  bool showbtn = false;
   final Color _colorForArchBackground = const Color(0xFFFAF8F2);
   final String _fallbackColor = '#FF0000';
   final String _fallbackGlass = 'Cocktail glass';
@@ -30,6 +33,22 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
 
   @override
   void initState() {
+    scrollController.addListener(() {
+      double showoffset = 10.0; 
+
+      if (scrollController.offset > showoffset) {
+        showbtn = true;
+        setState(() {
+          //update state
+        });
+      } else {
+        showbtn = false;
+        setState(() {
+          //update state
+        });
+      }
+    });
+
     super.initState();
     _ingredients = []; // a fallback in case we can't get the ingredients
     IngredientService.getIngredientsFromNames(
@@ -45,7 +64,12 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      floatingActionButton: BackToTopBtn(
+        scrollController: scrollController,
+        showbtn: showbtn,
+      ),
       body: SingleChildScrollView(
+        controller: scrollController,
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
@@ -118,6 +142,7 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                               .text ??
                           'No instructions found',
                       size),
+                  const SizedBox(height: 100),
                 ],
               ),
             ),
