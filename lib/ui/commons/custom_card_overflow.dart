@@ -61,14 +61,14 @@ class CustomOverflowCard extends StatelessWidget {
                 top: 160,
                 left: 10,
                 child: SizedBox(
-                  height: size.height * 0.15,
+                  height: size.height * 0.12,
                   width: size.width * 0.5,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        width: size.width * 0.4,
+                        width: size.width * 0.45,
                         height: size.height * 0.04,
                         child: AutoSizeText(
                           maxLines: 2,
@@ -81,7 +81,7 @@ class CustomOverflowCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: size.width * 0.4,
+                        width: size.width * 0.45,
                         height: size.height * 0.04,
                         child: AutoSizeText(
                           maxLines: 2,

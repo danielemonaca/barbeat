@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/commons/custom_card.dart';
+import 'package:barbeat/ui/screens/home/data/get_card_info.dart';
 import 'package:flutter/material.dart';
 
 class DiscoverNewOnes extends StatelessWidget {
@@ -6,10 +7,11 @@ class DiscoverNewOnes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = gridData;
     Size size = MediaQuery.of(context).size;
     const padding = EdgeInsets.only(top: 25);
     const black = Colors.black;
+
+    List<CardInfo> data = getCardInfo(context);
 
     return Align(
       alignment: Alignment.center,
@@ -39,9 +41,10 @@ class DiscoverNewOnes extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final item = data[index];
                     return CustomCard(
-                        title: item.title,
-                        image: item.image,
-                        action: () => item.action);
+                      title: item.title,
+                      image: item.image,
+                      action: () => item.action,
+                    );
                   },
                 ),
               ),
@@ -60,22 +63,3 @@ class CardInfo {
 
   CardInfo({required this.image, required this.title, required this.action});
 }
-
-List<CardInfo> gridData = [
-  CardInfo(
-      image: 'assets/introImages/cocktail1.png',
-      title: 'Search by Ingredient',
-      action: () => null),
-  CardInfo(
-      image: 'assets/homeCards/arrows.svg',
-      title: 'Search by Taste',
-      action: () => null),
-  CardInfo(
-      image: 'assets/homeCards/arrows.svg',
-      title: 'Random Cocktail',
-      action: () => null),
-  CardInfo(
-      image: 'assets/homeCards/heart.svg',
-      title: 'Your Favorites',
-      action: () => null),
-];
