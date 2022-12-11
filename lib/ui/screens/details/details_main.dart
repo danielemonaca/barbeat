@@ -5,10 +5,12 @@ import 'package:barbeat/helpers/get_drink_abv_from_ingredients.dart';
 import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:barbeat/models/drink.dart';
 import 'package:barbeat/models/garnishes.dart';
+import 'package:barbeat/models/glass.dart';
 import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/services/ingredient_service.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:barbeat/ui/screens/details/abv_chip.dart';
+import 'package:barbeat/ui/screens/details/scrollable_list_of_ingredients.dart';
 
 class CocktailDetailsPage extends StatefulWidget {
   final Drink drink;
@@ -24,6 +26,7 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   final String _fallbackColor = '#FF0000';
   final String _fallbackGlass = 'Cocktail glass';
   late List<Ingredient> _ingredients;
+  late final Glass _glass;
 
   @override
   void initState() {
@@ -33,6 +36,8 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
             widget.drink.ingredients?.map((e) => e.ingredientName).toList() ??
                 [])
         .then((value) => setState(() => _ingredients = value));
+
+    _glass = widget.drink.glass ?? Glass.highballGlass;
   }
 
   @override
@@ -55,15 +60,14 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                       0.2),
                 ),
                 buildWhiteBottomPart(size,
-                    height: 0.60, color: _colorForArchBackground),
+                    height: 0.65, color: _colorForArchBackground),
                 Positioned(
-                  top: 0,
+                  top: -20,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
-                        // This section will change when we have RIVE animation
                         width: 320,
                         height: 320,
                         child: CIG([
@@ -73,28 +77,101 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                         ], widget.drink.color,
                             widget.drink.glass?.name ?? _fallbackGlass, true),
                       ),
-                      const SizedBox(height: 20),
-                      Text(
-                        widget.drink.name,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontFamily: 'Metropolis',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
+                      drinkNameText(),
+                      const SizedBox(height: 10),
                       AbvChip(abv: getDrinkAbvFromIngredients(_ingredients)),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: size.width * 0.8,
+                        child: Container(
+                            alignment: Alignment.centerLeft,
+                            child: sectionTitleText('Ingredients', size)),
+                      ),
+                      ScrollableListOfIngredients(
+                        ingredients: _ingredients,
+                        ingredientsForDrink: widget.drink.ingredients ?? [],
+                      ),
                     ],
                   ),
                 )
               ],
             ),
             Container(
-              color: Colors.blue,
+              color: _colorForArchBackground,
+              width: size.width,
               constraints: const BoxConstraints(minHeight: 200),
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  sectionTitleText('Glass recommended', size),
+                  const SizedBox(height: 30),
+                  sectionText(_glass.displayName, size),
+                  const SizedBox(height: 50),
+                  sectionTitleText('Instructions', size),
+                  const SizedBox(height: 30),
+                  sectionText(
+                      widget.drink.instructions
+                              ?.firstWhere((instruction) =>
+                                  instruction.language ==
+                                  'en') // to modify with language service when i18n is available
+                              .text ??
+                          'No instructions found',
+                      size),
+                ],
+              ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget drinkNameText() {
+    return Text(
+      widget.drink.name,
+      style: const TextStyle(
+        fontSize: 28,
+        fontFamily: 'Metropolis',
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+    );
+  }
+
+  Widget sectionTitleText(String title, Size size) {
+    return SizedBox(
+      width: size.width * 0.8,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          title,
+          textAlign: TextAlign.left,
+          style: const TextStyle(
+            fontSize: 20,
+            fontFamily: 'Metropolis',
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget sectionText(String text, Size size) {
+    return SizedBox(
+      width: size.width * 0.8,
+      child: Container(
+        alignment: Alignment.centerLeft,
+        child: Text(
+          text.replaceAll('. ', '.\n\n'),
+          textAlign: TextAlign.left,
+          style: const TextStyle(
+            fontSize: 16,
+            fontFamily: 'Metropolis',
+            fontWeight: FontWeight.normal,
+            height: 1.5,
+          ),
         ),
       ),
     );

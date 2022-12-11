@@ -23,7 +23,6 @@ class IntroPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            // This section will change when we have RIVE animation
             width: 350,
             height: 350,
             child: cocktailImage,
