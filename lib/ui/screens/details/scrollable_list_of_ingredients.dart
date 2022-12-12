@@ -3,13 +3,9 @@ import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/models/ingredient_for_drink.dart';
 import 'package:barbeat/services/ingredient_service.dart';
 
-class ScrollableListOfIngredients extends StatelessWidget {
+class ScrollableListOfIngredients extends StatefulWidget {
   final List<Ingredient> ingredients;
   final List<IngredientForDrink> ingredientsForDrink;
-  final Color shadowColor = const Color.fromARGB(46, 219, 218, 212);
-
-  // ignore: todo
-  // TODO:  Here I would take from the global state which measure is preferred from the user
 
   const ScrollableListOfIngredients(
       {super.key,
@@ -17,27 +13,46 @@ class ScrollableListOfIngredients extends StatelessWidget {
       required this.ingredientsForDrink});
 
   @override
+  State<ScrollableListOfIngredients> createState() =>
+      _ScrollableListOfIngredientsState();
+}
+
+class _ScrollableListOfIngredientsState
+    extends State<ScrollableListOfIngredients> {
+  final Color shadowColor = const Color.fromARGB(46, 219, 218, 212);
+  final ScrollController scrollController = ScrollController();
+
+  @override
   Widget build(BuildContext context) {
-    final ScrollController scrollController = ScrollController();
     final Size size = MediaQuery.of(context).size;
 
     return SizedBox(
-      height: 210,
-      width: size.width * 0.9,
-      child: Scrollbar(
-        thumbVisibility: true,
-        controller: scrollController,
-        child: ListView.builder(
-          controller: scrollController,
-          scrollDirection: Axis.horizontal,
-          itemCount: ingredients.length,
-          itemBuilder: (context, index) {
-            return ingredientItem(
-                ingredient: ingredients[index],
-                ingredientForDrink: ingredientsForDrink[index]);
-          },
-        ),
-      ),
+      height: 172,
+      width: size.width * 0.84,
+      child: (() {
+        if (widget.ingredients.isNotEmpty) {
+          setState(() {});
+          return Scrollbar(
+            scrollbarOrientation: ScrollbarOrientation.bottom,
+            thumbVisibility: true,
+            radius: const Radius.circular(10),
+            thickness: 7,
+            controller: scrollController,
+            child: ListView.builder(
+              controller: scrollController,
+              scrollDirection: Axis.horizontal,
+              itemCount: widget.ingredients.length,
+              itemBuilder: (context, index) {
+                return ingredientItem(
+                    ingredient: widget.ingredients[index],
+                    ingredientForDrink: widget.ingredientsForDrink[index]);
+              },
+            ),
+          );
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      }()),
     );
   }
 
@@ -65,6 +80,7 @@ class ScrollableListOfIngredients extends StatelessWidget {
       {required Ingredient ingredient,
       required IngredientForDrink ingredientForDrink}) {
     return Container(
+      height: 120,
       margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
       child: Column(
         children: [

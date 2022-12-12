@@ -30,6 +30,7 @@ class Background extends StatelessWidget {
               CircleButton(
                 action: navigateToHome,
                 color: 0xFFFFFFFF,
+                shadow: true,
                 photoPath: 'assets/common/backIcon.svg',
                 size: 40,
               ),

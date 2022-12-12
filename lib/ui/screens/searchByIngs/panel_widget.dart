@@ -68,6 +68,7 @@ class _PanelWidgetState extends State<PanelWidget> {
               ),
               CircleButton(
                 action: () => null,
+                shadow: true,
                 color: 0xFFF54749,
                 photoPath: 'assets/common/plusIcon.svg',
                 size: 50,
