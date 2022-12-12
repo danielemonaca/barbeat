@@ -50,10 +50,10 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
   // function to determine whether or not to return to home page
   // based on if panel is open or not
   Future<bool> _onWillPop() async {
-    if(!panelController.isPanelOpen){
+    if (!panelController.isPanelOpen) {
       return true;
     }
-      panelController.close();
-      return false;
+    panelController.close();
+    return false;
   }
 }

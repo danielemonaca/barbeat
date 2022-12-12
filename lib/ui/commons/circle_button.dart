@@ -24,7 +24,7 @@ class CircleButton extends StatelessWidget {
       shape: const CircleBorder(),
       elevation: shadow! ? 6 : 0,
       height: size,
-      child: SvgPicture.asset( 
+      child: SvgPicture.asset(
         photoPath,
       ),
     );
