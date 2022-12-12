@@ -25,10 +25,10 @@ class _ScrollableListOfIngredientsState
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    
+
     return SizedBox(
       height: 172,
-      width: size.width * 0.9,
+      width: size.width * 0.84,
       child: (() {
         if (widget.ingredients.isNotEmpty) {
           setState(() {});

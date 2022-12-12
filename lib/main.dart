@@ -1,5 +1,8 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
+import 'package:barbeat/ui/screens/details/details_main.dart';
+import 'package:barbeat/ui/screens/details/mockData/mocked_drink.dart';
 import 'package:barbeat/ui/screens/home/home_main.dart';
+import 'package:barbeat/ui/screens/searchByIngs/searchByIngs_main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      home: const Home(),
+      home: CocktailDetailsPage(drink: mockedDrink),
     );
   }
 }

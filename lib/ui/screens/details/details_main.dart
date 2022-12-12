@@ -8,6 +8,8 @@ import 'package:barbeat/models/garnishes.dart';
 import 'package:barbeat/models/glass.dart';
 import 'package:barbeat/models/ingredient.dart';
 import 'package:barbeat/services/ingredient_service.dart';
+import 'package:barbeat/ui/commons/circle_button.dart';
+import 'package:barbeat/ui/commons/favorite_circle_button.dart';
 import 'package:barbeat/ui/commons/white_bottom_part.dart';
 import 'package:barbeat/ui/screens/details/abv_chip.dart';
 import 'package:barbeat/ui/screens/details/back-to-top-btn.dart';
@@ -31,10 +33,12 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   late List<Ingredient> _ingredients;
   late final Glass _glass;
 
+  bool isFavorite = false; // should be replaced by the local storage service
+
   @override
   void initState() {
     scrollController.addListener(() {
-      double showoffset = 10.0; 
+      double showoffset = 10.0;
 
       if (scrollController.offset > showoffset) {
         showbtn = true;
@@ -118,7 +122,27 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                       ),
                     ],
                   ),
-                )
+                ),
+                Positioned(
+                  top: 40,
+                  left: 0,
+                  width: size.width * 0.94,
+                  child: Row(
+                    children: [
+                      CircleButton(
+                        action: () => Navigator.pop(context),
+                        color: 0xFFFFFFFF,
+                        photoPath: 'assets/common/backIcon.svg',
+                        size: 40,
+                        shadow: false,
+                      ),
+                      const Spacer(),
+                      FavoriteCircleButton(
+                          isFavorite: isFavorite,
+                          onFavoriteChanged: onFavoriteChanged),
+                    ],
+                  ),
+                ),
               ],
             ),
             Container(
@@ -200,5 +224,11 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
         ),
       ),
     );
+  }
+
+  onFavoriteChanged(bool p1) {
+    setState(() {
+      isFavorite = p1;
+    });
   }
 }
