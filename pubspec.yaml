@@ -66,7 +66,6 @@ dependencies:
   cloud_functions: ^4.0.5
   firebase_storage: ^11.0.6
   equatable: ^2.0.5
-  cross_scroll: ^0.0.75
 
 dev_dependencies:
   flutter_test:
@@ -121,7 +120,6 @@ flutter:
     - assets/animations/rive_animation.riv
     - assets/animations/favorite_btn_animation.riv
 
-    
     - assets/dummyPhotos/mojito.png
     - assets/dummyPhotos/redCocktail.png
     - assets/common/backIcon.svg

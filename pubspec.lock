@@ -127,13 +127,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
-  cross_scroll:
-    dependency: "direct main"
-    description:
-      name: cross_scroll
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.75"
   crypto:
     dependency: transitive
     description:
