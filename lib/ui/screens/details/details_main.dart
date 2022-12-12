@@ -39,18 +39,8 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   void initState() {
     scrollController.addListener(() {
       double showoffset = 10.0;
-
-      if (scrollController.offset > showoffset) {
-        showbtn = true;
-        setState(() {
-          //update state
-        });
-      } else {
-        showbtn = false;
-        setState(() {
-          //update state
-        });
-      }
+      showbtn = scrollController.offset > showoffset;
+      setState(() {});
     });
 
     super.initState();
