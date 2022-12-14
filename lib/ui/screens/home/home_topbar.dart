@@ -1,3 +1,4 @@
+import 'package:barbeat/ui/screens/settings/settings_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,6 +15,15 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final white = Theme.of(context).primaryColor;
+    void navigateToSettings() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Settings(),
+        ),
+      );
+    }
+
     return AppBar(
       elevation: 0,
       title: const Text(
@@ -43,7 +53,7 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
               size: 40,
             ),
             onPressed: () {
-              // action would go here
+              navigateToSettings();
             },
           ),
         )
