@@ -36,7 +36,7 @@ class AbvChip extends StatelessWidget {
           ),
           const SizedBox(width: 5),
           Text(
-            abv > 0 ? '~$abv%' : 'Alcohol Free',
+            abv > 0 ? '~$abv% alcohol' : 'Alcohol Free',
             style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,

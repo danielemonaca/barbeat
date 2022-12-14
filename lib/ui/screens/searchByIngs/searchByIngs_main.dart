@@ -13,11 +13,11 @@ class SearchByIngredients extends StatefulWidget {
 
 class _SearchByIngredientsState extends State<SearchByIngredients> {
   final panelController = PanelController();
+  final backgroundColor = const Color(0xFFFF9697);
+  final panelColor = const Color(0xFFF1EFE8);
 
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0xFFFF9697);
-    const panelColor = Color(0xFFF1EFE8);
     Size size = MediaQuery.of(context).size;
 
     return WillPopScope(
@@ -50,11 +50,10 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
   // function to determine whether or not to return to home page
   // based on if panel is open or not
   Future<bool> _onWillPop() async {
-    if (panelController.isPanelOpen) {
-      panelController.close();
-      return false;
-    } else {
+    if (!panelController.isPanelOpen) {
       return true;
     }
+    panelController.close();
+    return false;
   }
 }

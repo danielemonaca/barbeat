@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:barbeat/common_libs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/ingredient.dart';
 
@@ -52,12 +53,26 @@ class IngredientService {
       ingredients.add(Ingredient.fromJson(doc.data()));
     }
 
-    return ingredients;
+    return removeDuplicatesFromIngredients(ingredients);
+  }
+
+  static List<Ingredient> removeDuplicatesFromIngredients(
+      List<Ingredient> ingredients) {
+    final ingredientNamesSet = <String>{};
+    final ingredientsWithoutDuplicates = <Ingredient>[];
+    for (var ingredient in ingredients) {
+      if (!ingredientNamesSet.contains(ingredient.name)) {
+        ingredientsWithoutDuplicates.add(ingredient);
+        ingredientNamesSet.add(ingredient.name);
+      }
+    }
+
+    return ingredientsWithoutDuplicates;
   }
 
   // get ingredients that have the name that starts with a string (search)
 
-  // NOT TESTED
+  // NOT TESTED YET
   static Future<List<Ingredient>> getIngredientsFromSearch(
       String search) async {
     final querySnapshot = await FirebaseFirestore.instance
@@ -73,5 +88,14 @@ class IngredientService {
     }
 
     return ingredients;
+  }
+
+  static Widget getIngredientImage(String firebaseStoragePath) {
+    if (firebaseStoragePath.isEmpty || firebaseStoragePath == 'null') {
+      return Image.asset(
+          // ignore: todo
+          'assets/images/cocktail.png'); // TODO find a callback image
+    }
+    return Image.network(firebaseStoragePath);
   }
 }
