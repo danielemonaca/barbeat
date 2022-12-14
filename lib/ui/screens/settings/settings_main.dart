@@ -1,4 +1,3 @@
-import 'package:barbeat/ui/screens/searchByIngs/searchByIngs_background.dart';
 import 'package:barbeat/ui/screens/settings/settings_background.dart';
 import 'package:flutter/material.dart';
 
