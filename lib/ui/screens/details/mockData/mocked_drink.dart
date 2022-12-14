@@ -30,6 +30,14 @@ Drink mockedDrink = const Drink(
       ingredientName: 'Champagne',
       measure: '1 oz ',
     ),
+    IngredientForDrink(
+      ingredientName: 'Applejack',
+      measure: '2 oz',
+    ),
+    IngredientForDrink(
+      ingredientName: 'Apricot Brandy',
+      measure: '3 oz',
+    ),
   ],
   color: '#FF0000',
 );

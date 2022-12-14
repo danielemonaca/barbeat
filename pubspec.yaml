@@ -115,12 +115,17 @@ flutter:
     - assets/introImages/background-pattern.png
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
+
+    # Animations
     - assets/animations/rive_animation.riv
+    - assets/animations/favorite_btn_animation.riv
+
     - assets/dummyPhotos/mojito.png
     - assets/dummyPhotos/redCocktail.png
     - assets/common/backIcon.svg
     - assets/searchByIngs/noIngsPic.png
     - assets/common/plusIcon.svg
+    - assets/common/favoriteIcon.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
