@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/screens/settings/settings_background.dart';
+import 'package:barbeat/ui/screens/settings/settings_options.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {
@@ -13,6 +14,7 @@ class Settings extends StatelessWidget {
       body: Stack(
         children: const [
           SettingsBackground(),
+          SettingsOptions(),
         ],
       ),
     );
