@@ -28,11 +28,7 @@ class _LanguagesState extends State<Languages> {
   bool secondButtonActive = false;
   @override
   Widget build(BuildContext context) {
-    const activeButtonColor = 0xCCE76667;
     const titleColor = 0xFFB5B5B5;
-    const inactiveButtonColor = 0xFFD9D9D9;
-    const inactiveTextColor = 0xFF000000;
-    const activeTextColor = 0xFFFFFFFF;
 
     handleFirstButton() {
       setState(() {
@@ -74,10 +70,6 @@ class _LanguagesState extends State<Languages> {
               LanguageButton(
                 action: handleFirstButton,
                 active: firstButtonActive,
-                // buttonColor:
-                //     firstButtonActive ? activeButtonColor : inactiveButtonColor,
-                // textColor:
-                //     firstButtonActive ? activeTextColor : inactiveTextColor,
                 title: widget.buttonOne,
                 // size: widget.size,
               ),
@@ -86,11 +78,6 @@ class _LanguagesState extends State<Languages> {
                 child: LanguageButton(
                   action: handleSecondButton,
                   active: secondButtonActive,
-                  // buttonColor: secondButtonActive
-                  //     ? activeButtonColor
-                  //     : inactiveButtonColor,
-                  // textColor:
-                  //     secondButtonActive ? activeTextColor : inactiveTextColor,
                   title: widget.buttonTwo,
                 ),
               ),
