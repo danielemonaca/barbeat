@@ -3,16 +3,12 @@ import 'package:flutter/material.dart';
 class LanguageButton extends StatelessWidget {
   final Function() action;
   final String title;
-  // final int buttonColor;
-  // final int textColor;
   final bool active;
 
   const LanguageButton(
       {super.key,
       required this.action,
       required this.title,
-      // required this.buttonColor,
-      // required this.textColor,
       required this.active});
 
   @override
@@ -23,15 +19,11 @@ class LanguageButton extends StatelessWidget {
     const activeTextColor = 0xFFFFFFFF;
 
     return SizedBox(
-      height: 30,
+      height: 35,
       child: MaterialButton(
         minWidth: 20,
         onPressed: action,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        // style: ElevatedButton.styleFrom(
-        //   shape: const StadiumBorder(),
-        //   backgroundColor: Color(buttonColor),
-        // ),
         color: active
             ? const Color(activeButtonColor)
             : const Color(inactiveButtonColor),

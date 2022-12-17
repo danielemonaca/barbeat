@@ -7,7 +7,6 @@ class Languages extends StatefulWidget {
   final String title;
   final String buttonOne;
   final String buttonTwo;
-  // final double size;
 
   const Languages({
     super.key,
@@ -16,7 +15,6 @@ class Languages extends StatefulWidget {
     required this.title,
     required this.buttonOne,
     required this.buttonTwo,
-    // required this.size,
   });
 
   @override
@@ -55,7 +53,11 @@ class _LanguagesState extends State<Languages> {
             children: [
               Text(
                 widget.title,
-                style: const TextStyle(color: Color(titleColor), fontSize: 15),
+                style: const TextStyle(
+                  color: Color(titleColor),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),

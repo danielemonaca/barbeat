@@ -1,10 +1,9 @@
 import 'package:barbeat/ui/screens/settings/measurements/measurement_button.dart';
-// import 'package:barbeat/ui/screens/settings/measurements/measurements_buttons.dart';
 import 'package:flutter/material.dart';
 
 class Measurements extends StatefulWidget {
-  final double width; // width of container
-  final double height; // height of container
+  final double width;
+  final double height;
   final String title;
   final String buttonOne;
   final String buttonTwo;
@@ -56,7 +55,11 @@ class _MeasurementsState extends State<Measurements> {
             children: [
               Text(
                 widget.title,
-                style: const TextStyle(color: Color(titleColor), fontSize: 15),
+                style: const TextStyle(
+                  color: Color(titleColor),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
@@ -64,7 +67,6 @@ class _MeasurementsState extends State<Measurements> {
         SizedBox(
           width: widget.width,
           height: widget.height,
-          // child: const MeasurementToggleButtons(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
