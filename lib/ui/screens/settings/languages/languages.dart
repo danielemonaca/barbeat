@@ -24,6 +24,8 @@ class Languages extends StatefulWidget {
 }
 
 class _LanguagesState extends State<Languages> {
+  bool firstButtonActive = true;
+  bool secondButtonActive = false;
   @override
   Widget build(BuildContext context) {
     const activeButtonColor = 0xCCE76667;
@@ -31,17 +33,15 @@ class _LanguagesState extends State<Languages> {
     const inactiveButtonColor = 0xFFD9D9D9;
     const inactiveTextColor = 0xFF000000;
     const activeTextColor = 0xFFFFFFFF;
-    bool firstButtonActive = true;
-    bool secondButtonActive = false;
 
-    void handleFirstButton() {
+    handleFirstButton() {
       setState(() {
         firstButtonActive = true;
         secondButtonActive = false;
       });
     }
 
-    void handleSecondButton() {
+    handleSecondButton() {
       setState(() {
         firstButtonActive = false;
         secondButtonActive = true;
@@ -73,10 +73,11 @@ class _LanguagesState extends State<Languages> {
             children: [
               LanguageButton(
                 action: handleFirstButton,
-                buttonColor:
-                    firstButtonActive ? activeButtonColor : inactiveButtonColor,
-                textColor:
-                    firstButtonActive ? activeTextColor : inactiveTextColor,
+                active: firstButtonActive,
+                // buttonColor:
+                //     firstButtonActive ? activeButtonColor : inactiveButtonColor,
+                // textColor:
+                //     firstButtonActive ? activeTextColor : inactiveTextColor,
                 title: widget.buttonOne,
                 // size: widget.size,
               ),
@@ -84,13 +85,13 @@ class _LanguagesState extends State<Languages> {
                 padding: const EdgeInsets.only(left: 15),
                 child: LanguageButton(
                   action: handleSecondButton,
-                  buttonColor: secondButtonActive
-                      ? activeButtonColor
-                      : inactiveButtonColor,
-                  textColor:
-                      secondButtonActive ? activeTextColor : inactiveTextColor,
+                  active: secondButtonActive,
+                  // buttonColor: secondButtonActive
+                  //     ? activeButtonColor
+                  //     : inactiveButtonColor,
+                  // textColor:
+                  //     secondButtonActive ? activeTextColor : inactiveTextColor,
                   title: widget.buttonTwo,
-                  // size: widget.size,
                 ),
               ),
             ],

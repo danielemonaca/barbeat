@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 
-class SettingButton extends StatelessWidget {
+class MeasurementButton extends StatelessWidget {
   final Function() action;
   final String title;
-  final int buttonColor;
-  final int textColor;
   final double size;
   final bool? shadow;
+  final bool active;
 
-  const SettingButton(
+  const MeasurementButton(
       {super.key,
       required this.action,
-      required this.buttonColor,
-      required this.textColor,
       required this.title,
       required this.size,
-      this.shadow = false});
+      this.shadow = false,
+      required this.active});
 
   @override
   Widget build(BuildContext context) {
+    const activeButtonColor = 0xCCE76667;
+    const inactiveButtonColor = 0xFFD9D9D9;
+    const inactiveTextColor = 0xFF000000;
+    const activeTextColor = 0xFFFFFFFF;
+
     return MaterialButton(
       minWidth: 60,
       padding: EdgeInsets.zero,
-      textColor: Color(textColor),
+      textColor: active
+          ? const Color(activeTextColor)
+          : const Color(inactiveTextColor),
       onPressed: action,
-      color: Color(buttonColor),
+      color: active
+          ? const Color(activeButtonColor)
+          : const Color(inactiveButtonColor),
       shape: const CircleBorder(),
       elevation: shadow! ? 6 : 0,
       height: size,
