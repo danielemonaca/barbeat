@@ -13,7 +13,7 @@ class LanguageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const activeButtonColor = 0xCCE76667;
+    const activeButtonColor = 0xFFEA7E7D;
     const inactiveButtonColor = 0xFFD9D9D9;
     const inactiveTextColor = 0xFF000000;
     const activeTextColor = 0xFFFFFFFF;
@@ -21,6 +21,7 @@ class LanguageButton extends StatelessWidget {
     return SizedBox(
       height: 35,
       child: MaterialButton(
+        elevation: 0,
         minWidth: 20,
         onPressed: action,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

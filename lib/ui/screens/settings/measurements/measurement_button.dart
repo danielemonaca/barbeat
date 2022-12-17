@@ -17,13 +17,13 @@ class MeasurementButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const activeButtonColor = 0xCCE76667;
+    const activeButtonColor = 0xFFEA7E7D;
     const inactiveButtonColor = 0xFFD9D9D9;
     const inactiveTextColor = 0xFF000000;
     const activeTextColor = 0xFFFFFFFF;
 
     return MaterialButton(
-      minWidth: 60,
+      minWidth: 75,
       padding: EdgeInsets.zero,
       textColor: active
           ? const Color(activeTextColor)
