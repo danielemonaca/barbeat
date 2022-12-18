@@ -21,11 +21,10 @@ class Measurements extends StatefulWidget {
 class _MeasurementsState extends State<Measurements> {
   bool firstButtonActive = true;
   bool secondButtonActive = false;
+  final titleColor = 0xFFB5B5B5;
+  final double measurementButtonSize = 35;
   @override
   Widget build(BuildContext context) {
-    const titleColor = 0xFFB5B5B5;
-    const double measurementButtonSize = 35;
-
     void handleFirstButton() {
       setState(() {
         firstButtonActive = true;
@@ -64,7 +63,7 @@ class _MeasurementsState extends State<Measurements> {
             children: [
               Text(
                 widget.title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Color(titleColor),
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
