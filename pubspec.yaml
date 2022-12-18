@@ -123,6 +123,7 @@ flutter:
     - assets/dummyPhotos/mojito.png
     - assets/dummyPhotos/redCocktail.png
     - assets/common/backIcon.svg
+    - assets/common/left-arrow.svg
     - assets/searchByIngs/noIngsPic.png
     - assets/common/plusIcon.svg
     - assets/common/favoriteIcon.svg
