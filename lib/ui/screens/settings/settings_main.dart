@@ -5,10 +5,9 @@ import 'package:flutter/material.dart';
 class Settings extends StatelessWidget {
   const Settings({super.key});
 
+  final backgroundColor = const Color(0x99F54749);
   @override
   Widget build(BuildContext context) {
-    const backgroundColor = Color(0x99F54749);
-
     return Scaffold(
       backgroundColor: backgroundColor,
       body: Stack(

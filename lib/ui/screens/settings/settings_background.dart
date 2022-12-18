@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 class SettingsBackground extends StatelessWidget {
   const SettingsBackground({super.key});
 
+  final titleColor = const Color(0xFFFFFFFF);
+  final Color colorForArchBackground = const Color(0xFFFAF8F2);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    const titleColor = Color(0xFFFFFFFF);
-    const Color colorForArchBackground = Color(0xFFFAF8F2);
     void navigateToHome() {
       Navigator.push(
         context,
@@ -35,7 +35,7 @@ class SettingsBackground extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: size.width * 0.17),
-                child: const Text(
+                child: Text(
                   'Settings',
                   style: TextStyle(
                     color: titleColor,

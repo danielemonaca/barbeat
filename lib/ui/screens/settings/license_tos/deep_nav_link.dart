@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class LicenseToS extends StatelessWidget {
+class DeepNavLink extends StatelessWidget {
   final double width;
   final double height;
   final String title;
   final Function() action;
 
-  const LicenseToS(
+  const DeepNavLink(
       {super.key,
       required this.width,
       required this.height,

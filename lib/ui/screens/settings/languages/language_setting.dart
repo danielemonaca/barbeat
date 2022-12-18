@@ -1,27 +1,23 @@
 import 'package:barbeat/ui/screens/settings/languages/language_button.dart';
 import 'package:flutter/material.dart';
 
-class Languages extends StatefulWidget {
+class LanguageSetting extends StatefulWidget {
   final double width;
   final double height;
   final String title;
-  final String buttonOne;
-  final String buttonTwo;
 
-  const Languages({
+  const LanguageSetting({
     super.key,
     required this.width,
     required this.height,
     required this.title,
-    required this.buttonOne,
-    required this.buttonTwo,
   });
 
   @override
-  State<Languages> createState() => _LanguagesState();
+  State<LanguageSetting> createState() => _LanguageSettingState();
 }
 
-class _LanguagesState extends State<Languages> {
+class _LanguageSettingState extends State<LanguageSetting> {
   bool firstButtonActive = true;
   bool secondButtonActive = false;
   @override
@@ -41,6 +37,19 @@ class _LanguagesState extends State<Languages> {
         secondButtonActive = true;
       });
     }
+
+    List<ButtonInfo> buttons = [
+      ButtonInfo(
+        active: firstButtonActive,
+        title: 'English',
+        action: handleFirstButton,
+      ),
+      ButtonInfo(
+        active: secondButtonActive,
+        title: 'Italian',
+        action: handleSecondButton,
+      )
+    ];
 
     return Row(
       children: [
@@ -66,27 +75,31 @@ class _LanguagesState extends State<Languages> {
           width: widget.width,
           height: widget.height,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              LanguageButton(
-                action: handleFirstButton,
-                active: firstButtonActive,
-                title: widget.buttonOne,
-                // size: widget.size,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: LanguageButton(
-                  action: handleSecondButton,
-                  active: secondButtonActive,
-                  title: widget.buttonTwo,
-                ),
-              ),
+              for (var i = 0; i < buttons.length; i++)
+                LanguageButton(
+                  action: buttons[i].action,
+                  title: buttons[i].title,
+                  active: buttons[i].active,
+                )
             ],
           ),
         ),
       ],
     );
   }
+}
+
+class ButtonInfo {
+  final bool active;
+  final String title;
+  final Function() action;
+
+  ButtonInfo({
+    required this.active,
+    required this.title,
+    required this.action,
+  });
 }

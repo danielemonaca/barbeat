@@ -5,18 +5,12 @@ class Measurements extends StatefulWidget {
   final double width;
   final double height;
   final String title;
-  final String buttonOne;
-  final String buttonTwo;
-  final double size; // size of button
 
   const Measurements({
     super.key,
     required this.width,
     required this.height,
     required this.title,
-    required this.buttonOne,
-    required this.buttonTwo,
-    required this.size,
   });
 
   @override
@@ -29,6 +23,7 @@ class _MeasurementsState extends State<Measurements> {
   @override
   Widget build(BuildContext context) {
     const titleColor = 0xFFB5B5B5;
+    const double measurementButtonSize = 35;
 
     void handleFirstButton() {
       setState(() {
@@ -43,6 +38,21 @@ class _MeasurementsState extends State<Measurements> {
         secondButtonActive = true;
       });
     }
+
+    List<ButtonInfo> buttons = [
+      ButtonInfo(
+        active: firstButtonActive,
+        title: 'cl',
+        action: handleFirstButton,
+        size: measurementButtonSize,
+      ),
+      ButtonInfo(
+        active: secondButtonActive,
+        title: 'oz',
+        action: handleSecondButton,
+        size: measurementButtonSize,
+      )
+    ];
 
     return Row(
       children: [
@@ -68,25 +78,34 @@ class _MeasurementsState extends State<Measurements> {
           width: widget.width,
           height: widget.height,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              MeasurementButton(
-                action: handleFirstButton,
-                active: firstButtonActive,
-                title: widget.buttonOne,
-                size: widget.size,
-              ),
-              MeasurementButton(
-                action: handleSecondButton,
-                active: secondButtonActive,
-                title: widget.buttonTwo,
-                size: widget.size,
-              ),
+              for (var i = 0; i < buttons.length; i++)
+                MeasurementButton(
+                  action: buttons[i].action,
+                  title: buttons[i].title,
+                  active: buttons[i].active,
+                  size: measurementButtonSize,
+                )
             ],
           ),
         ),
       ],
     );
   }
+}
+
+class ButtonInfo {
+  final bool active;
+  final String title;
+  final Function() action;
+  final double size;
+
+  ButtonInfo({
+    required this.active,
+    required this.title,
+    required this.action,
+    required this.size,
+  });
 }
