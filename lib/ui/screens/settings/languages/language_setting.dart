@@ -1,6 +1,8 @@
 import 'package:barbeat/ui/screens/settings/languages/language_button.dart';
 import 'package:flutter/material.dart';
 
+import '../settings_button_info.dart';
+
 class LanguageSetting extends StatefulWidget {
   final double width;
   final double height;
@@ -78,11 +80,11 @@ class _LanguageSettingState extends State<LanguageSetting> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              for (var i = 0; i < buttons.length; i++)
+              for (var button in buttons)
                 LanguageButton(
-                  action: buttons[i].action,
-                  title: buttons[i].title,
-                  active: buttons[i].active,
+                  action: button.action,
+                  title: button.title,
+                  active: button.active,
                 )
             ],
           ),
@@ -90,16 +92,4 @@ class _LanguageSettingState extends State<LanguageSetting> {
       ],
     );
   }
-}
-
-class ButtonInfo {
-  final bool active;
-  final String title;
-  final Function() action;
-
-  ButtonInfo({
-    required this.active,
-    required this.title,
-    required this.action,
-  });
 }

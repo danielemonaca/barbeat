@@ -14,10 +14,9 @@ class DeepNavLink extends StatelessWidget {
       required this.title,
       required this.action});
 
+  final titleColor = 0xFFB5B5B5;
   @override
   Widget build(BuildContext context) {
-    const titleColor = 0xFFB5B5B5;
-
     return GestureDetector(
       onTap: action,
       child: SizedBox(
@@ -29,7 +28,7 @@ class DeepNavLink extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Color(titleColor),
                 fontSize: 15,
                 fontWeight: FontWeight.w500,

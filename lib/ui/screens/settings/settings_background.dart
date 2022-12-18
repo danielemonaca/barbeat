@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class SettingsBackground extends StatelessWidget {
   const SettingsBackground({super.key});
 
-  final titleColor = const Color(0xFFFFFFFF);
+  final titleColor = 0xFFFFFFFF;
   final Color colorForArchBackground = const Color(0xFFFAF8F2);
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SettingsBackground extends StatelessWidget {
             children: [
               CircleButton(
                 action: navigateToHome,
-                color: 0xFFFFFFFF,
+                color: titleColor,
                 photoPath: 'assets/common/backIcon.svg',
                 size: 40,
               ),
@@ -38,7 +38,7 @@ class SettingsBackground extends StatelessWidget {
                 child: Text(
                   'Settings',
                   style: TextStyle(
-                    color: titleColor,
+                    color: Color(titleColor),
                     fontSize: 26,
                     fontWeight: FontWeight.w600,
                   ),

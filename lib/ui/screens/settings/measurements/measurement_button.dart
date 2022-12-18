@@ -15,26 +15,21 @@ class MeasurementButton extends StatelessWidget {
       this.shadow = false,
       required this.active});
 
+  final activeButtonColor = 0xFFEA7E7D;
+  final inactiveButtonColor = 0xFFD9D9D9;
+  final inactiveTextColor = 0xFF000000;
+  final activeTextColor = 0xFFFFFFFF;
   @override
   Widget build(BuildContext context) {
-    const activeButtonColor = 0xFFEA7E7D;
-    const inactiveButtonColor = 0xFFD9D9D9;
-    const inactiveTextColor = 0xFF000000;
-    const activeTextColor = 0xFFFFFFFF;
-
     return MaterialButton(
       minWidth: 75,
       padding: EdgeInsets.zero,
-      textColor: active
-          ? const Color(activeTextColor)
-          : const Color(inactiveTextColor),
+      textColor: active ? Color(activeTextColor) : Color(inactiveTextColor),
       onPressed: action,
-      color: active
-          ? const Color(activeButtonColor)
-          : const Color(inactiveButtonColor),
+      color: active ? Color(activeButtonColor) : Color(inactiveButtonColor),
       shape: const CircleBorder(),
-      elevation: shadow! ? 6 : 0,
       height: size,
+      elevation: 0,
       child: Text(
         title,
         style: const TextStyle(

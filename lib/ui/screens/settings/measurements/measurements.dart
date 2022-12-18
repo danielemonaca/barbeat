@@ -1,5 +1,6 @@
 import 'package:barbeat/ui/screens/settings/measurements/measurement_button.dart';
 import 'package:flutter/material.dart';
+import '../settings_button_info.dart';
 
 class Measurements extends StatefulWidget {
   final double width;
@@ -44,13 +45,11 @@ class _MeasurementsState extends State<Measurements> {
         active: firstButtonActive,
         title: 'cl',
         action: handleFirstButton,
-        size: measurementButtonSize,
       ),
       ButtonInfo(
         active: secondButtonActive,
         title: 'oz',
         action: handleSecondButton,
-        size: measurementButtonSize,
       )
     ];
 
@@ -81,11 +80,11 @@ class _MeasurementsState extends State<Measurements> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              for (var i = 0; i < buttons.length; i++)
+              for (var button in buttons)
                 MeasurementButton(
-                  action: buttons[i].action,
-                  title: buttons[i].title,
-                  active: buttons[i].active,
+                  action: button.action,
+                  title: button.title,
+                  active: button.active,
                   size: measurementButtonSize,
                 )
             ],
@@ -94,18 +93,4 @@ class _MeasurementsState extends State<Measurements> {
       ],
     );
   }
-}
-
-class ButtonInfo {
-  final bool active;
-  final String title;
-  final Function() action;
-  final double size;
-
-  ButtonInfo({
-    required this.active,
-    required this.title,
-    required this.action,
-    required this.size,
-  });
 }
