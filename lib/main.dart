@@ -1,6 +1,4 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
-import 'package:barbeat/ui/screens/details/details_main.dart';
-import 'package:barbeat/ui/screens/details/mockData/mocked_drink.dart';
 import 'package:barbeat/ui/screens/search/search_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

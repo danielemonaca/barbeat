@@ -47,7 +47,6 @@ class SearchItem extends StatelessWidget {
                       color: Color(0xFF7A7A7A)),
                 ),
                 const SizedBox(height: 5),
-                AbvChip(abv: abv!, alcohol: alcohol),
               ],
             ),
           ),
