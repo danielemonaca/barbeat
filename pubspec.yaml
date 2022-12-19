@@ -110,6 +110,7 @@ flutter:
     - assets/logos/logo.svg
     - assets/introImages/white_bottom_part.svg
     - assets/introImages/barbeat-logo.png
+    - assets/common/settings_icon.svg
     - assets/introImages/cocktail1.png
     - assets/introImages/cocktail2.png
     - assets/introImages/background-pattern.png

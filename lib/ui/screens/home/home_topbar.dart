@@ -45,15 +45,9 @@ class HomeTopBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         Padding(
           padding: iconPadding,
-          child: IconButton(
-            icon: const Icon(
-              Icons.settings_outlined,
-              color: iconColor,
-              size: 40,
-            ),
-            onPressed: () {
-              navigateToSettings();
-            },
+          child: GestureDetector(
+            onTap: navigateToSettings,
+            child: SvgPicture.asset('assets/common/settings_icon.svg'),
           ),
         )
       ],
