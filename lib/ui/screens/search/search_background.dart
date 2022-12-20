@@ -25,7 +25,7 @@ class _SearchBackgroundState extends State<SearchBackground> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    const titleColor = Color(0xFFFFFFFF);
+    // const titleColor = Color(0xFFFFFFFF);
     const Color colorForArchBackground = Color(0xFFFAF8F2);
     void navigateToHome() {
       Navigator.push(

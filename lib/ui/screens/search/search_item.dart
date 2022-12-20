@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:barbeat/cig/CIG.dart';
 import 'package:barbeat/common_libs.dart';
 
