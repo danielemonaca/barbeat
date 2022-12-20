@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/commons/search_field.dart';
+import 'package:barbeat/ui/screens/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
 class HeadlineSearch extends StatefulWidget {
@@ -20,13 +21,22 @@ class _HeadlineSearchState extends State<HeadlineSearch> {
     focusNode = FocusNode();
   }
 
+  final black = Colors.black;
+  final padding = const EdgeInsets.only(top: 20);
+  String title = 'What would you like to drink?';
+  String searchCaption = 'Search cocktail';
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    const black = Colors.black;
-    const padding = EdgeInsets.only(top: 20);
-    String title = 'What would you like to drink?';
-    String searchCaption = 'Search cocktail';
+
+    void navigateToSearch() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SearchScreen(),
+        ),
+      );
+    }
 
     return Align(
       alignment: Alignment.center,
@@ -38,7 +48,7 @@ class _HeadlineSearchState extends State<HeadlineSearch> {
             children: [
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: black,
@@ -46,13 +56,16 @@ class _HeadlineSearchState extends State<HeadlineSearch> {
               ),
               Padding(
                 padding: padding,
-                child: SearchField(
-                  controller: textController,
-                  focusNode: focusNode,
-                  title: searchCaption,
-                  action: widget.action,
-                  width: size.width,
-                  enabled: true,
+                child: GestureDetector(
+                  onTap: navigateToSearch,
+                  child: SearchField(
+                    controller: textController,
+                    focusNode: focusNode,
+                    title: searchCaption,
+                    action: widget.action,
+                    width: size.width,
+                    enabled: false,
+                  ),
                 ),
               ),
             ],

@@ -1,20 +1,26 @@
+import 'package:barbeat/cig/CIG.dart';
 import 'package:barbeat/common_libs.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchItem extends StatelessWidget {
   String? color;
   String name;
-  String? picturePath;
   int? abv;
   bool alcohol = false;
+  List<String> ings;
+  String colorLiquid;
+  String glass;
+  bool animated;
 
   SearchItem(
       {super.key,
       required this.name,
       this.color,
-      this.picturePath,
       this.abv,
-      this.alcohol = false});
+      this.alcohol = false,
+      required this.ings,
+      required this.colorLiquid,
+      required this.glass,
+      required this.animated});
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +33,11 @@ class SearchItem extends StatelessWidget {
             child: CircleAvatar(
               radius: 30,
               backgroundColor: Color(int.parse(color!)),
-              child: SvgPicture.asset(
-                picturePath!,
-                width: 30,
-                height: 30,
+              child: CIG(
+                ings,
+                colorLiquid,
+                glass,
+                animated,
               ),
             ),
           ),

@@ -1,5 +1,5 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
-import 'package:barbeat/ui/screens/search/search_screen.dart';
+import 'package:barbeat/ui/screens/home/home_main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      home: const SearchScreen(),
+      home: const Home(),
     );
   }
 }
