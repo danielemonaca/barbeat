@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:barbeat/ui/commons/circle_button.dart';
 import 'package:barbeat/ui/commons/search_field.dart';
+import 'package:barbeat/ui/screens/searchByIngs/custom_card_cig.dart';
+import 'package:barbeat/ui/screens/searchByIngs/dummy_ings_data.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -50,6 +52,8 @@ class _PanelWidgetState extends State<PanelWidget> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         _buildDragHandle(),
@@ -76,6 +80,29 @@ class _PanelWidgetState extends State<PanelWidget> {
             ],
           ),
         ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: SizedBox(
+            width: size.width * 0.85,
+            height: size.height * 0.65,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemCount: ingredients.length,
+              itemBuilder: (context, index) {
+                final item = ingredients[index];
+                return CustomCardCIG(
+                  title: item.title,
+                  action: item.action,
+                  cigIngs: item.cigIngs,
+                  cigColor: item.cigColor,
+                  cigGlass: item.cigGlass,
+                );
+              },
+            ),
+          ),
+        )
       ],
     );
   }
