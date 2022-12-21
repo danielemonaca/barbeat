@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/screens/search/cocktail_card.dart';
+import 'package:barbeat/ui/screens/search/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class ResultsContainer extends StatefulWidget {
@@ -9,9 +10,6 @@ class ResultsContainer extends StatefulWidget {
 }
 
 class _ResultsContainerState extends State<ResultsContainer> {
-  final double childWidth = 0.88;
-  final double childHeight = 0.28;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -24,19 +22,24 @@ class _ResultsContainerState extends State<ResultsContainer> {
       child: SizedBox(
         width: parentWidth,
         height: parentHeight,
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CocktailCard(
-                  width: constraints.maxWidth * 0.88,
-                  height: constraints.maxWidth * 0.28,
-                ),
-              ],
-            );
-          },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              for (var item in cocktails)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: CocktailCard(
+                    width: size.width * 0.88,
+                    height: size.width * 0.30,
+                    title: item.title,
+                    description: item.description,
+                    cigIngs: item.cigIngs,
+                    cigColor: item.cigColor,
+                    cigGlass: item.cigGlass,
+                  ),
+                )
+            ],
+          ),
         ),
       ),
     );
