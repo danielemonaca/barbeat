@@ -5,11 +5,15 @@ class CustomCard extends StatelessWidget {
   final String image;
   final String title;
   final Function action;
+  final double width;
+  final double height;
   const CustomCard(
       {super.key,
       required this.title,
       required this.image,
-      required this.action});
+      required this.action,
+      this.width = 0.13,
+      this.height = 0.09});
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +44,8 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: size.width * 0.13,
-                height: size.height * 0.09,
+                width: size.width * width,
+                height: size.height * height,
                 child: imgType == 'png'
                     ? Image.asset(image)
                     : SvgPicture.asset(image),

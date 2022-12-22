@@ -96,6 +96,8 @@ class _PanelWidgetState extends State<PanelWidget> {
                   title: item.title,
                   action: item.action,
                   image: item.image,
+                  width: 0.21,
+                  height: 0.13,
                 );
               },
             ),
