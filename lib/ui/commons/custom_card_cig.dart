@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../cig/CIG.dart';
+import '../../cig/CIG.dart';
 
 class CustomCardCIG extends StatelessWidget {
   final String title;

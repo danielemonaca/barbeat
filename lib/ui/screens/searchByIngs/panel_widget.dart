@@ -1,12 +1,12 @@
 import 'dart:async';
-
 import 'package:barbeat/ui/commons/circle_button.dart';
 import 'package:barbeat/ui/commons/search_field.dart';
-import 'package:barbeat/ui/screens/searchByIngs/custom_card_cig.dart';
 import 'package:barbeat/ui/screens/searchByIngs/dummy_ings_data.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+
+import '../../commons/custom_card.dart';
 
 class PanelWidget extends StatefulWidget {
   final ScrollController controller;
@@ -92,12 +92,10 @@ class _PanelWidgetState extends State<PanelWidget> {
               itemCount: ingredients.length,
               itemBuilder: (context, index) {
                 final item = ingredients[index];
-                return CustomCardCIG(
+                return CustomCard(
                   title: item.title,
                   action: item.action,
-                  cigIngs: item.cigIngs,
-                  cigColor: item.cigColor,
-                  cigGlass: item.cigGlass,
+                  image: item.image,
                 );
               },
             ),
