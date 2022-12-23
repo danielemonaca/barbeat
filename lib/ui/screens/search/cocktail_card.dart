@@ -2,6 +2,7 @@ import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../cig/CIG.dart';
+import '../../../helpers/color_utility.dart';
 
 class CocktailCard extends StatelessWidget {
   final double width;
@@ -34,11 +35,12 @@ class CocktailCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
           colors: [
-            // Color(0xFFABECB6),
-            Color(stringColorToHex(cigColor)),
+            lightenColor(
+              Color(stringColorToHex(cigColor)),
+            ),
             Colors.white,
           ],
         ),
