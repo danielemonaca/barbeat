@@ -1,4 +1,5 @@
 import 'package:barbeat/ui/commons/buttons/red_button.dart';
+import 'package:barbeat/ui/screens/home/home_main.dart';
 import 'package:barbeat/ui/screens/intro/intro_background.dart';
 import 'package:barbeat/ui/screens/intro/intro_page.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,15 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
+    void navigateToHome() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const Home(),
+        ),
+      );
+    }
+
     return Material(
       child: Stack(
         children: [
@@ -62,16 +72,21 @@ class _IntroScreenState extends State<IntroScreen> {
           onLastPage
               ? Container(
                   alignment: const Alignment(0, 0.96),
-                  child: const RedButton(
-                      title: _getStartedText, action: null, isActivated: true),
+                  child: RedButton(
+                    title: _getStartedText,
+                    action: navigateToHome,
+                    isActivated: true,
+                  ),
                 )
               : Container(
                   alignment: const Alignment(0, 0.9),
-                  child: const Text(_swipeLeftText,
-                      style: TextStyle(
-                        color: _swipeLeftColor,
-                      )),
-                )
+                  child: const Text(
+                    _swipeLeftText,
+                    style: TextStyle(
+                      color: _swipeLeftColor,
+                    ),
+                  ),
+                ),
         ],
       ),
     );
