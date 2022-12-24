@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import '../../cig/CIG.dart';
 
-class CustomCard extends StatelessWidget {
-  final String image;
+class CustomCardCIG extends StatelessWidget {
   final String title;
   final Function action;
-  final double width;
-  final double height;
-  const CustomCard(
-      {super.key,
-      required this.title,
-      required this.image,
-      required this.action,
-      this.width = 0.13,
-      this.height = 0.09});
+  final List<String> cigIngs;
+  final String cigColor;
+  final String cigGlass;
+  const CustomCardCIG({
+    super.key,
+    required this.title,
+    required this.action,
+    required this.cigIngs,
+    required this.cigColor,
+    required this.cigGlass,
+  });
 
+  final black = const Color(0x40000000);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    String imgType = image.substring(image.length - 3);
-    const black = Color(0x40000000);
 
     return Align(
       alignment: Alignment.center,
@@ -31,24 +31,27 @@ class CustomCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(18),
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 blurRadius: 4,
                 color: black,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
-                width: size.width * width,
-                height: size.height * height,
-                child: imgType == 'png'
-                    ? Image.asset(image)
-                    : SvgPicture.asset(image),
+                width: size.width * 0.2,
+                height: size.height * 0.1,
+                child: CIG(
+                  cigIngs,
+                  cigColor,
+                  cigGlass,
+                  true,
+                ),
               ),
               SizedBox(
                 width: size.width * 0.25,
