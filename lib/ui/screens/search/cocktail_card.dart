@@ -1,6 +1,8 @@
+import 'package:barbeat/helpers/string_color_to_hex.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../cig/CIG.dart';
+import '../../../helpers/color_utility.dart';
 
 class CocktailCard extends StatelessWidget {
   final double width;
@@ -23,6 +25,7 @@ class CocktailCard extends StatelessWidget {
 
   final int titleColor = 0xFF7A7A7A;
   final int descriptionColor = 0xFFB7B7B7;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,11 +34,13 @@ class CocktailCard extends StatelessWidget {
       height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
           colors: [
-            Color(0xFFABECB6),
+            lightenColor(
+              Color(stringColorToHex(cigColor)),
+            ),
             Colors.white,
           ],
         ),
@@ -82,12 +87,26 @@ class CocktailCard extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
-                        child: Text(
-                          description,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
-                            color: Color(descriptionColor),
+                        child: SizedBox(
+                          height: 20,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Text(
+                                '🔥',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Text(
+                                description,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                  color: Color(descriptionColor),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
