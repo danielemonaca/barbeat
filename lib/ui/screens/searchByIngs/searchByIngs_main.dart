@@ -30,7 +30,7 @@ class _SearchByIngredientsState extends State<SearchByIngredients> {
           controller: panelController,
           body: Stack(
             children: [
-              const Background(),
+              const SearchByIngBackground(),
               NoIngsPic(size: size), // TODO: render conditionally***
             ],
           ),

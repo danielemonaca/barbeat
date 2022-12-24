@@ -4,6 +4,7 @@ import '../../globals/theme/app_themes.dart';
 class SearchField extends StatefulWidget {
   final String title;
   final double width;
+  final double? height;
   final Function action;
   final bool enabled;
   final FocusNode focusNode;
@@ -14,6 +15,7 @@ class SearchField extends StatefulWidget {
       required this.title,
       required this.action,
       required this.width,
+      this.height,
       required this.enabled,
       required this.focusNode,
       required this.controller});
@@ -33,6 +35,7 @@ class _SearchFieldState extends State<SearchField> {
   Widget build(BuildContext context) {
     return Container(
       width: widget.width,
+      height: widget.height,
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(

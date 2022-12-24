@@ -116,6 +116,7 @@ flutter:
     - assets/introImages/background-pattern.png
     - assets/homeCards/arrows.svg
     - assets/homeCards/heart.svg
+    - assets/searchScreen/white_rectangle.svg
 
     # Animations
     - assets/animations/rive_animation.riv
