@@ -10,7 +10,6 @@ class StoreFavorites {
   }
 
   static Future addFavorites(String drink) async {
-    _prefs = await SharedPreferences.getInstance();
     favorites = _prefs.getStringList("favorites") ?? [];
     favorites.add(drink);
     await _prefs.setStringList("favorites", favorites);
@@ -18,10 +17,14 @@ class StoreFavorites {
   }
 
   static Future removeFavorite(String drink) async {
-    _prefs = await SharedPreferences.getInstance();
     favorites = _prefs.getStringList("favorites") ?? [];
     favorites.remove(drink);
     await _prefs.setStringList("favorites", favorites);
     // print(favorites);
+  }
+
+  static bool checkIsFavorite(String drink) {
+    favorites = _prefs.getStringList("favorites") ?? [];
+    return favorites.contains(drink) ? true : false;
   }
 }

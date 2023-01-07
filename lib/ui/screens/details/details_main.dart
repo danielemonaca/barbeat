@@ -44,6 +44,9 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
       setState(() {});
     });
 
+    // will check to see if the drink is already a favorite
+    isFavorite = StoreFavorites.checkIsFavorite(widget.drink.name);
+
     super.initState();
     _ingredients = []; // a fallback in case we can't get the ingredients
     IngredientService.getIngredientsFromNames(
