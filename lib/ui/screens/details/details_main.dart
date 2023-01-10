@@ -222,12 +222,11 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   }
 
   onFavoriteChanged(bool p1) {
-    setState(() {
-      isFavorite = !isFavorite;
-    });
-
     isFavorite == false
         ? StoreFavorites.addFavorites(widget.drink.name)
         : StoreFavorites.removeFavorite(widget.drink.name);
+    setState(() {
+      isFavorite = !isFavorite;
+    });
   }
 }

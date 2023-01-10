@@ -13,14 +13,12 @@ class StoreFavorites {
     favorites = _prefs.getStringList("favorites") ?? [];
     favorites.add(drink);
     await _prefs.setStringList("favorites", favorites);
-    // print(favorites);
   }
 
   static Future removeFavorite(String drink) async {
     favorites = _prefs.getStringList("favorites") ?? [];
     favorites.remove(drink);
     await _prefs.setStringList("favorites", favorites);
-    // print(favorites);
   }
 
   static bool checkIsFavorite(String drink) {

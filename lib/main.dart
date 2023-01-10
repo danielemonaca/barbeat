@@ -1,9 +1,7 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
 import 'package:barbeat/logic/common/storing_favorites.dart';
-import 'package:barbeat/ui/screens/details/details_main.dart';
-import 'package:barbeat/ui/screens/details/mockData/mocked_drink.dart';
-// import 'package:barbeat/ui/screens/home/home_main.dart';
-// import 'package:barbeat/ui/screens/intro/intro_main.dart';
+import 'package:barbeat/ui/screens/home/home_main.dart';
+import 'package:barbeat/ui/screens/intro/intro_main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,7 +17,6 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   initScreen = prefs.getInt("initScreen");
   await prefs.setInt("initScreen", 1);
-  await prefs.setStringList("favorites", []);
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -45,10 +42,9 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      // home: initScreen == 0 || initScreen == null
-      //     ? const IntroScreen()
-      //     : const Home(),
-      home: CocktailDetailsPage(drink: mockedDrink),
+      home: initScreen == 0 || initScreen == null
+          ? const IntroScreen()
+          : const Home(),
     );
   }
 }
