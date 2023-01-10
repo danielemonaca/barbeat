@@ -3,6 +3,7 @@ import 'package:barbeat/common_libs.dart';
 import 'package:barbeat/helpers/color_utility.dart';
 import 'package:barbeat/helpers/get_drink_abv_from_ingredients.dart';
 import 'package:barbeat/helpers/string_color_to_hex.dart';
+import 'package:barbeat/logic/common/storing_favorites.dart';
 import 'package:barbeat/models/drink.dart';
 import 'package:barbeat/models/garnishes.dart';
 import 'package:barbeat/models/glass.dart';
@@ -42,6 +43,9 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
       showbtn = scrollController.offset > showoffset;
       setState(() {});
     });
+
+    // will check to see if the drink is already a favorite
+    isFavorite = StoreFavorites.checkIsFavorite(widget.drink.name);
 
     super.initState();
     _ingredients = []; // a fallback in case we can't get the ingredients
@@ -128,8 +132,9 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
                       ),
                       const Spacer(),
                       FavoriteCircleButton(
-                          isFavorite: isFavorite,
-                          onFavoriteChanged: onFavoriteChanged),
+                        isFavorite: isFavorite,
+                        onFavoriteChanged: onFavoriteChanged,
+                      ),
                     ],
                   ),
                 ),
@@ -217,8 +222,11 @@ class _CocktailDetailsPageState extends State<CocktailDetailsPage> {
   }
 
   onFavoriteChanged(bool p1) {
+    !isFavorite
+        ? StoreFavorites.addFavorites(widget.drink.name)
+        : StoreFavorites.removeFavorite(widget.drink.name);
     setState(() {
-      isFavorite = p1;
+      isFavorite = !isFavorite;
     });
   }
 }

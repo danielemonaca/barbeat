@@ -1,4 +1,5 @@
 import 'package:barbeat/globals/theme/custom_themes.dart';
+import 'package:barbeat/logic/common/storing_favorites.dart';
 import 'package:barbeat/ui/screens/home/home_main.dart';
 import 'package:barbeat/ui/screens/intro/intro_main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,6 +20,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await StoreFavorites.init();
   runApp(MyApp());
 }
 
